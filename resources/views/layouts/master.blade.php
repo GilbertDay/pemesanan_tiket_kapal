@@ -8,8 +8,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="overflow-hidden">
+    <img class="w-full h-full absolute -z-10  " src="{{ asset('assets/bg-kapal.jpg') }}" />
+
     @yield('content')
+
 </body>
 
 </html>
