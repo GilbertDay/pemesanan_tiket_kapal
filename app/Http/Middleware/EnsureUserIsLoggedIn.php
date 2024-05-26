@@ -20,6 +20,7 @@ class EnsureUserIsLoggedIn
 
         if (!Auth::check()) {
             // Redirect ke halaman login jika pengguna belum login
+            // session(['url.intended' => url()->previous()]);
             return redirect('/login');
         }
 

@@ -34,7 +34,7 @@
         </div>
         @endif
     </nav>
-    <form action="/tampil-list" method="POST">
+    <form action="/tampil-list" method="POST" class="-mt-32">
         @csrf
         <div class="flex flex-col gap-10 px-10 pt-10 pb-16 text-center bg-gray-900 bg-opacity-50 mx-28 rounded-2xl">
             <div class="flex gap-20">
@@ -42,7 +42,7 @@
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Pelabuhan Asal</div>
                     <form class="">
                         <select id="pelabuhan-asal" name="asal" class="w-full px-3 py-2 rounded-xl">
-                            <option selected>Pilih Pelabuhan Asal</option>
+                            <option class="hidden">Pilih Pelabuhan Asal</option>
                             <option value="jailolo">Pelabuhan Laut Jailolo</option>
                             <option value="ternate">Pelabuhan Bastion Ternate</option>
                         </select>
@@ -52,7 +52,7 @@
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Pelabuhan Tujuan</div>
                     <form class="">
                         <select id="pelabuhan-tujuan" name="tujuan" class="w-full px-3 py-2 rounded-xl">
-                            <option selected>Pilih Pelabuhan Tujuan</option>
+                            <option class="hidden">Pilih Pelabuhan Tujuan</option>
                             <option value="jailolo">Pelabuhan Laut Jailolo</option>
                             <option value="ternate">Pelabuhan Bastion Ternate</option>
                         </select>
@@ -69,7 +69,7 @@
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Jenis Layanan</div>
                     <select id="layanan" name="layanan" class="w-full px-3 py-2 rounded-xl"
                         onchange="togglePenumpangInput()">
-                        <option selected>Pilih Jenis Layanan Speedboat</option>
+                        <option class="hidden">Pilih Jenis Layanan Speedboat</option>
                         <option value="pesanan_pribadi">Pemesanan Pribadi</option>
                         <option value="carter">Carter Speedboat</option>
                     </select>

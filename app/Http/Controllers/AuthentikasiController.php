@@ -20,13 +20,13 @@ class AuthentikasiController extends Controller
 
             switch ($user->role) {
                 case 'admin':
-                    return redirect('/')->with('alert-login', 'Login Berhasil.'); // Jika pengguna adalah admin, arahkan ke halaman admin
+                    return redirect()->intended('/'); // Jika pengguna adalah admin, arahkan ke halaman admin
                     break;
                 case 'user':
-                    return redirect('/'); // Jika pengguna adalah kader, arahkan ke halaman kader
+                    return redirect()->intended('/'); // Jika pengguna adalah kader, arahkan ke halaman kader
                     break;
                 default:
-                    return redirect('/')->with('alert-login', 'Akses ditolak.'); // Jika status tidak sesuai dengan yang diharapkan, kembali ke halaman login
+                    return redirect()->intended('/');// Jika status tidak sesuai dengan yang diharapkan, kembali ke halaman login
             }
 
         }
