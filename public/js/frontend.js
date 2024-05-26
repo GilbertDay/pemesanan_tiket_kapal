@@ -24,6 +24,7 @@ var selected = 0;
 function handlePilihKapal(id) {
     var btnLanjutNoLink = document.getElementById("btn-lanjut-no-link");
     var btnLanjutLink = document.getElementById("btn-lanjut-link");
+    var formList = document.getElementById("form-list");
     if (selected != 0) {
         var jbPrev = document.getElementById(`jb-${selected}`);
         var jtPrev = document.getElementById(`jt-${selected}`);
@@ -66,7 +67,7 @@ function handlePilihKapal(id) {
     if (selected != 0) {
         btnLanjutLink.classList.remove("hidden");
         btnLanjutNoLink.classList.add("hidden");
-        btnLanjutLink.href = `/pesan/${selected}`;
+        formList.action = `/pesan/${selected}`;
     } else {
         btnLanjutLink.classList.add("hidden");
         btnLanjutNoLink.classList.remove("hidden");
