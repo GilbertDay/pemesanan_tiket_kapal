@@ -8,11 +8,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="overflow-hidden">
-    <img class="w-full h-full absolute -z-10  " src="{{ asset('assets/bg-kapal.jpg') }}" />
 
-    @yield('content')
 
-</body>
+@yield('content')
+
+
+
+
+<script type="text/javascript" src="{{asset('js/frontend.js')}}"></script>
 
 </html>
