@@ -4,7 +4,7 @@
 
 @section('content')
 
-<body class="overflow-hidden">
+<body>
     <img class="absolute w-full h-full -z-10 " src="{{ asset('assets/bg-kapal.jpg') }}" />
 
     <nav class="flex justify-between px-20 bg-gradient-to-b mt-10 text-xl from-white to-transparent h-[350px]  ">
@@ -26,7 +26,6 @@
                 </button>
             </form>
         </div>
-
         @else
         <div class="flex gap-5 font-bold ">
             <a href="/login">Masuk</a>
@@ -62,12 +61,12 @@
             <div class="flex gap-20">
                 <div class="w-1/2 ">
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Tanggal Keberangkatan</div>
-                    <input class="w-full px-3 py-2 rounded-xl " name="tanggal" type="date"
+                    <input class="w-full px-3 py-2 rounded-xl " name="inputData[tanggal]" type="date"
                         placeholder="Pilih Tanggal Keberangkatan" />
                 </div>
                 <div class="w-1/2 ">
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Jenis Layanan</div>
-                    <select id="layanan" name="layanan" class="w-full px-3 py-2 rounded-xl"
+                    <select id="layanan" name="inputData[layanan]" class="w-full px-3 py-2 rounded-xl"
                         onchange="togglePenumpangInput()">
                         <option class="hidden">Pilih Jenis Layanan Speedboat</option>
                         <option value="pesanan_pribadi">Pemesanan Pribadi</option>
@@ -84,7 +83,7 @@
                                 class="flex items-center justify-center w-8 h-8 text-green-600 bg-white rounded-full"
                                 onclick="changePenumpang(1)">+</button>
                         </div>
-                        <input type="hidden" id="penumpang" name="jumlah_penumpang" value="1">
+                        <input type="hidden" id="penumpang" name="inputData[jumlah_penumpang]" value="1">
                     </div>
                 </div>
             </div>
