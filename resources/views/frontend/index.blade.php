@@ -4,7 +4,7 @@
 
 @section('content')
 
-<body class="overflow-hidden">
+<body>
     <img class="absolute w-full h-full -z-10 " src="{{ asset('assets/bg-kapal.jpg') }}" />
 
     <nav class="flex justify-between px-20 bg-gradient-to-b mt-10 text-xl from-white to-transparent h-[350px]  ">
