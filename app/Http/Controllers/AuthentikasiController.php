@@ -21,7 +21,7 @@ class AuthentikasiController extends Controller
 
             switch ($user->role) {
                 case 'admin':
-                    return redirect()->intended('/'); // Jika pengguna adalah admin, arahkan ke halaman admin
+                    return redirect()->intended('/admin/dashboard'); // Jika pengguna adalah admin, arahkan ke halaman admin
                     break;
                 case 'user':
                     return redirect()->intended('/'); // Jika pengguna adalah kader, arahkan ke halaman kader

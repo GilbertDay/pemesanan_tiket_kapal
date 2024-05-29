@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jadwals', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('no_telp')->unique();
-            $table->string('password');
-            $table->string('role');
+            $table->string('speedboat_id');
+            $table->string('pel_asal');
+            $table->string('pel_tujuan');
+            $table->date('tgl_berangkat');
+            $table->time('jam_brgkt');
+            $table->time('jam_tiba');
             $table->timestamps();
+
+            $table->foreign('speedboat_id')->references('id')->on('speedboats')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jadwals');
     }
 };

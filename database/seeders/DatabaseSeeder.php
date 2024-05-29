@@ -5,6 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Jadwal;
+use App\Models\Penumpang;
+use App\Models\Speedboat;
+use App\Models\Transaksi;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +26,53 @@ class DatabaseSeeder extends Seeder
             'email'	=> 'srimayufara@gmail.com',
             'no_telp' => '085217331557',
             'password'	=> bcrypt('12345678'),
+            'role' => 'user'
+        ]);
+        User::create([
+            'name'	=> 'Admin',
+            'email'	=> 'admin@gmail.com',
+            'no_telp' => '085217331558',
+            'password'	=> bcrypt('admin'),
             'role' => 'admin'
-    ]);
+        ]);
+        Speedboat::create([
+            'nama_speedboat' => 'Sakina Putri',
+            'kapasitas_kursi' => '30',
+            'harga'	=> '75000',
+        ]);
+
+        Jadwal::create([
+            'speedboat_id' => 'SPD-1',
+            'pel_asal' => 'Jailolo',
+            'pel_tujuan'	=> 'Ternate',
+            'tgl_berangkat'	=> '2024-01-12',
+            'jam_brgkt'	=> '08:00:00',
+            'jam_tiba'	=> '09:00:00',
+        ]);
+
+        Penumpang::create([
+            'id' => '5304122310020001',
+            'nama' => 'Gilbert',
+            'nama_instansi' => '',
+            'jenis_kelamin'	=> 'Laki-Laki',
+            'alamat'	=> 'Gejayan',
+            'no_telp' => '085217331558',
+            'no_telp_darurat' => '085217331124',
+        ]);
+
+        Transaksi::create([
+            'user_id' => 'USER-1',
+            'penumpang_id' => '5304122310020001',
+            'jadwal_id'	=> 'JDWL-1',
+            'biaya_penanganan'	=> '2024-01-12',
+            'status' => 'Ternate',
+            'jenis_layanan'	=> 'Reguler',
+            'jumlah_kursi' => '2',
+            'harga'	=> '150000',
+            'diskon' => '0',
+            'total'	=> '150000',
+
+        ]);
+
     }
 }
