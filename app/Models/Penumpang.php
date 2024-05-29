@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Penumpang extends Model
 {
     use HasFactory;
-
+    public $incrementing = false;
     protected $fillable = [
         'id',
         'nama',

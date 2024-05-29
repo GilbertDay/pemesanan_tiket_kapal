@@ -28,7 +28,7 @@
 
                 <!-- Jika Kosong -->
 
-                <div class="mt-5 text-gray-500">
+                <!-- <div class="mt-5 text-gray-500">
                     <div class="w-1/5 mb-3 font-bold">PALAMEA EXPRESS</div>
                     <div class="pl-10">
                         <div class="flex font-semibold text-center">
@@ -42,67 +42,37 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- End Jika Kosong -->
 
+
+                @foreach($listjadwal as $key=>$jadwal)
                 <div class="mt-5">
-                    <div class="w-1/5 font-bold text-[#151F57] mb-3">PALAMEA EXPRESS</div>
+                    <div class="w-1/5 font-bold text-[#151F57] mb-3">{{$jadwal->speedboat->nama_speedboat}}</div>
                     <div class="pl-10">
                         <div class="flex items-center font-semibold text-center">
                             <div>
-                                <div id="check-true-1" class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔</div>
-                                <div id="check-false-1" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]"></div>
+                                <div id="check-true-{{$key + 1}}"
+                                    class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔
+                                </div>
+                                <div id="check-false-{{$key + 1}}" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]">
+                                </div>
                             </div>
-                            <div id="jb-1" class="w-1/5 ">06.30</div>
-                            <div id="jt-1" class="w-1/5">07.15</div>
+                            <div id="jb-{{$key + 1}}" class="w-1/5 ">{{$jadwal->jam_brgkt}}</div>
+                            <div id="jt-{{$key + 1}}" class="w-1/5">{{$jadwal->jam_tiba}}</div>
                             <div class="w-1/5">30</div>
-                            <div id="tarif-1" class="w-1/5">Rp.50.000</div>
-                            <div id="btn-pilih-1" onclick="handlePilihKapal(1)"
+                            <div id="tarif-{{$key + 1}}" class="w-1/5">Rp. {{$jadwal->speedboat->harga}}.000</div>
+                            <div id="btn-pilih-{{$key + 1}}" onclick="handlePilihKapal(`{{$key + 1}}`)"
                                 class="bg-[#151F57] cursor-pointer text-white py-1 px-10 rounded-lg">Pilih
                             </div>
 
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="mt-5">
-                    <div class="w-1/5 font-bold text-[#151F57] mb-3">PALAMEA EXPRESS</div>
-                    <div class="pl-10">
-                        <div class="flex font-semibold text-center">
-                            <div>
-                                <div id="check-true-2" class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔</div>
-                                <div id="check-false-2" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]"></div>
-                            </div>
-                            <div id="jb-2" class="w-1/5 ">06.30</div>
-                            <div id="jt-2" class="w-1/5">07.15</div>
-                            <div class="w-1/5">30</div>
-                            <div id="tarif-2" class="w-1/5">Rp.50.000</div>
-                            <div id="btn-pilih-2" onclick="handlePilihKapal(2)"
-                                class="bg-[#151F57] cursor-pointer text-white py-1 px-10 rounded-lg">Pilih
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-5">
-                    <div class="w-1/5 font-bold text-[#151F57] mb-3">PALAMEA EXPRESS</div>
-                    <div class="pl-10">
-                        <div class="flex font-semibold text-center">
-                            <div>
-                                <div id="check-true-3" class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔</div>
-                                <div id="check-false-3" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]"></div>
-                            </div>
-                            <div id="jb-3" class="w-1/5 ">06.30</div>
-                            <div id="jt-3" class="w-1/5">07.15</div>
-                            <div class="w-1/5">30</div>
-                            <div id="tarif-3" class="w-1/5">Rp.50.000</div>
-                            <div id="btn-pilih-3" onclick="handlePilihKapal(3)"
-                                class="bg-[#151F57] cursor-pointer text-white py-1 px-10 rounded-lg">Pilih
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div>

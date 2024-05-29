@@ -9,7 +9,10 @@ class Jadwal extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+
     protected $fillable = [
+        'id',
         'speedboat_id',
         'pel_asal',
         'pel_tujuan',
@@ -17,6 +20,10 @@ class Jadwal extends Model
         'jam_brgkt',
         'jam_tiba',
     ];
+
+    public function speedboat() {
+        return $this->belongsTo('App\Models\Speedboat','speedboat_id','id');
+    }
 
     protected static function boot()
     {

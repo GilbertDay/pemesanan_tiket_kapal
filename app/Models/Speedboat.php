@@ -9,7 +9,10 @@ class Speedboat extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+
     protected $fillable = [
+        'id',
         'nama_speedboat',
         'kapasitas_kursi',
         'harga',
