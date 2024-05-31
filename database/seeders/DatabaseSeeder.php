@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
             'speedboat_id' => 'SPD-1',
             'pel_asal' => 'Ternate',
             'pel_tujuan'	=> 'Jailolo',
-            'tgl_berangkat'	=> '2024-05-30',
+            'tgl_berangkat'	=> '2024-05-31',
             'jam_brgkt'	=> '10:00:00',
             'jam_tiba'	=> '11:00:00',
         ]);

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 </head>
 
 
@@ -16,7 +19,16 @@
 
 
 <!-- <script type="text/javascript" src="{{asset('js/frontend.js')}}"></script> -->
-<script></script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            minDate: 0,
+            dateFormat: "yy-mm-dd",
+            maxDate: "+1M"
+        });
+    });
+
+</script>
 <script>
     function togglePenumpangInput() {
         var layanan = document.getElementById("layanan").value;
