@@ -17,13 +17,16 @@
             <input name="dataInput[jumlah_penumpang]" type="text" value={{$penumpang}} hidden>
             <input name="dataInput[tanggal]" type="text" value={{$tanggal}} hidden>
             <input name="dataInput[layanan]" type="text" value={{$layanan}} hidden>
-
+            <div class="h-16 flex justify-center items-center"> Terdapat <span class="font-bold px-1">
+                    {{$listjadwal->count()}}
+                </span> Jadwal yang masih tersedia pada tanggal <span class="font-bold px-1"> {{$tanggal}} </span>  
+            </div>
             <div class="flex flex-col py-10">
-                <div class="flex w-full pl-10 text-center">
-                    <div class="w-1/5 font-semibold">Jam Berangkat</div>
-                    <div class="w-1/5 font-semibold">Jam Tiba</div>
-                    <div class="w-1/5 font-semibold">Jumlah Kursi</div>
-                    <div class="w-1/5 font-semibold">Harga (IDR)</div>
+                <div class="flex w-full ml-12 text-center">
+                    <div class="w-1/5 ml-6 font-semibold">Jam Berangkat</div>
+                    <div class="w-1/5 -ml-4 font-semibold">Jam Tiba</div>
+                    <div class="w-1/5 -ml-2 font-semibold">Jumlah Kursi</div>
+                    <div class="w-1/5 -ml-3 font-semibold">Harga (IDR)</div>
                 </div>
 
                 <!-- Jika Kosong -->

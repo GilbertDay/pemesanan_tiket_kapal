@@ -18,9 +18,15 @@ Route::get('/register', function () {
 
 Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     Route::get('/dashboard', [AdminController::class, 'dahsboard']);
+    Route::get('/penumpang', [AdminController::class, 'penumpang']);
+    Route::get('/jadwal', [AdminController::class, 'jadwal']);
+    Route::get('/speedboat', [AdminController::class, 'speedboat']);
+    Route::get('/transaksi', [AdminController::class, 'transaksi']);
+
+    // Tambah Data
+    Route::post('/tambahJadwal', [AdminController::class, 'tambahJadwal']);
 });
 
-Route::get('/penumpang', [AdminController::class, 'penumpang']);
 Route::post('/pesan/{id}', [App\Http\Controllers\BookingController::class, 'index'])->middleware('login');
 Route::post('/tampil-list', [App\Http\Controllers\ListJadwalController::class, 'index']);
 Route::post('/cek-login', [App\Http\Controllers\AuthentikasiController::class, 'cekLogin']);

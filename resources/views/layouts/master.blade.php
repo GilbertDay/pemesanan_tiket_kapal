@@ -106,6 +106,20 @@
         }
     }
 
+
+    function setTujuan() {
+        var asal = document.getElementById('pelabuhan-asal').value;
+        var tujuan = document.getElementById('pelabuhan-tujuan');
+
+        if (asal === 'Pelabuhan Laut Jailolo') {
+            tujuan.value = 'Pelabuhan Bastion Ternate';
+        } else if (asal === 'Pelabuhan Bastion Ternate') {
+            tujuan.value = 'Pelabuhan Laut Jailolo';
+        } else {
+            tujuan.value = '';
+        }
+    }
+
 </script>
 
 </html>

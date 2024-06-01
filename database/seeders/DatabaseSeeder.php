@@ -94,19 +94,60 @@ class DatabaseSeeder extends Seeder
             'no_telp' => '085217331558',
             'no_telp_darurat' => '085217331124',
         ]);
+        Penumpang::create([
+            'id' => '5304122310020003',
+            'nama' => 'Waldy',
+            'nama_instansi' => '',
+            'jenis_kelamin'	=> 'Laki-Laki',
+            'alamat'	=> 'Gejayan',
+            'no_telp' => '085217331556',
+            'no_telp_darurat' => '085217331125',
+        ]);
+        Penumpang::create([
+            'id' => '5304122310020005',
+            'nama' => 'Angel',
+            'nama_instansi' => '',
+            'jenis_kelamin'	=> 'Laki-Laki',
+            'alamat'	=> 'Gejayan',
+            'no_telp' => '085217331555',
+            'no_telp_darurat' => '085217331127',
+        ]);
 
         Transaksi::create([
             'user_id' => 'USER-1',
             'penumpang_id' => '5304122310020001',
             'jadwal_id'	=> 'JDWL-1',
-            'biaya_penanganan'	=> '2024-01-12',
-            'status' => 'Ternate',
+            'biaya_penanganan'	=> '2000',
+            'status' => 'pending',
             'jenis_layanan'	=> 'Reguler',
             'jumlah_kursi' => '2',
             'harga'	=> '150000',
             'diskon' => '0',
             'total'	=> '150000',
-
+        ]);
+        Transaksi::create([
+            'user_id' => 'USER-1',
+            'penumpang_id' => '5304122310020003',
+            'jadwal_id'	=> 'JDWL-1',
+            'biaya_penanganan'	=> '2000',
+            'status' => 'pending',
+            'jenis_layanan'	=> 'Reguler',
+            'jumlah_kursi' => '1',
+            'harga'	=> '75000',
+            'diskon' => '0',
+            'total'	=> '150000',
+        ]);
+        Transaksi::create([
+            'user_id' => 'USER-1',
+            'penumpang_id' => '5304122310020005',
+            'jadwal_id'	=> 'JDWL-1',
+            'biaya_penanganan'	=> '2000',
+            'status' => 'success',
+            'jenis_layanan'	=> 'Reguler',
+            'jumlah_kursi' => '1',
+            'harga'	=> '75000',
+            'diskon' => '0',
+            'total'	=> '150000',
         ]);
 
     }

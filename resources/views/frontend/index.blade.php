@@ -37,25 +37,22 @@
         @csrf
         <div class="flex flex-col gap-10 px-10 pt-10 pb-16 text-center bg-gray-900 bg-opacity-50 mx-28 rounded-2xl">
             <div class="flex gap-20">
-                <div class="w-1/2 ">
+                <div class="w-1/2">
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Pelabuhan Asal</div>
                     <form class="">
-                        <select id="pelabuhan-asal" name="asal" class="w-full px-3 py-2 rounded-xl">
+                        <select id="pelabuhan-asal" name="asal" class="w-full px-3 py-2 rounded-xl"
+                            onchange="setTujuan()">
                             <option class="hidden">Pilih Pelabuhan Asal</option>
-                            <option value="jailolo">Pelabuhan Laut Jailolo</option>
-                            <option value="ternate">Pelabuhan Bastion Ternate</option>
+                            <option value="Pelabuhan Laut Jailolo">Pelabuhan Laut Jailolo</option>
+                            <option value="Pelabuhan Bastion Ternate">Pelabuhan Bastion Ternate</option>
                         </select>
                     </form>
                 </div>
                 <div class="w-1/2 ">
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Pelabuhan Tujuan</div>
-                    <form class="">
-                        <select id="pelabuhan-tujuan" name="tujuan" class="w-full px-3 py-2 rounded-xl">
-                            <option class="hidden">Pilih Pelabuhan Tujuan</option>
-                            <option value="jailolo">Pelabuhan Laut Jailolo</option>
-                            <option value="ternate">Pelabuhan Bastion Ternate</option>
-                        </select>
-                    </form>
+                    <input type="text" id="pelabuhan-tujuan" name="tujuan" value="" required readonly
+                        class="w-full px-3 py-2 rounded-xl">
+
                 </div>
             </div>
             <div class="flex gap-20">

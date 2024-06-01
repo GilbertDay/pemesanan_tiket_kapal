@@ -22,6 +22,16 @@ class Transaksi extends Model
         'total',
     ];
 
+    public function penumpang() {
+        return $this->belongsTo('App\Models\Penumpang','penumpang_id','id');
+    }
+    public function user() {
+        return $this->belongsTo('App\Models\User','user_id','id');
+    }
+    public function jadwal() {
+        return $this->belongsTo('App\Models\Jadwal','jadwal_id','id');
+    }
+
     protected static function boot()
     {
         parent::boot();
