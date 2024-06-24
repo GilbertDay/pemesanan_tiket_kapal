@@ -67,7 +67,7 @@
                         <div class="flex justify-between mt-2">
                             <div class="text-sm font-semibold text-gray-600">Total Harga</div>
                             <div class="font-semibold">IDR
-                                {{($layanan == 'pesanan_pribadi' ? $jumlah_penumpang : $jadwal->speedboat->kapasitas_kursi * $jadwal->speedboat->harga) + 5}}K
+                                {{($layanan == 'pesanan_pribadi' ? $jumlah_penumpang * $jadwal->speedboat->harga : $jadwal->speedboat->kapasitas_kursi * $jadwal->speedboat->harga - 50 ) + 5}}K
                             </div>
                         </div>
                     </div>
