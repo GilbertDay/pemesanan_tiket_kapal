@@ -50,8 +50,8 @@
                 </div>
                 <div class="w-1/2 ">
                     <div class="mb-2 text-xl font-bold tracking-wide text-left text-white">Pelabuhan Tujuan</div>
-                    <input type="text" id="pelabuhan-tujuan" name="tujuan" value="" required readonly
-                        class="w-full px-3 py-2 rounded-xl">
+                    <input type="text" id="pelabuhan-tujuan" name="tujuan" value="" placeholder="Pelabuhan Tujuan"
+                        required readonly class="w-full px-3 py-2 rounded-xl">
 
                 </div>
             </div>

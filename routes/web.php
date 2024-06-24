@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PembayaranController;
 
 
 Route::get('/', function () {
@@ -22,12 +23,15 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     Route::get('/jadwal', [AdminController::class, 'jadwal']);
     Route::get('/speedboat', [AdminController::class, 'speedboat']);
     Route::get('/transaksi', [AdminController::class, 'transaksi']);
-
     // Tambah Data
     Route::post('/tambahJadwal', [AdminController::class, 'tambahJadwal']);
 });
 
-Route::post('/pesan/{id}', [App\Http\Controllers\BookingController::class, 'index'])->middleware('login');
+Route::middleware(['login'])->group(function() {
+    Route::post('/pesan/{id}', [App\Http\Controllers\BookingController::class, 'index']);
+    Route::post('/pembayaran', [PembayaranController::class, 'index']);
+});
+
 Route::post('/tampil-list', [App\Http\Controllers\ListJadwalController::class, 'index']);
 Route::post('/cek-login', [App\Http\Controllers\AuthentikasiController::class, 'cekLogin']);
 Route::post('/tambah-user', [App\Http\Controllers\AuthentikasiController::class, 'tambahUser']);

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nama_instansi')->nullable(true);
             $table->string('jenis_kelamin');
             $table->string('alamat');
-            $table->string('no_telp')->unique();
+            $table->string('no_telp');
             $table->string('no_telp_darurat');
             $table->timestamps();
         });

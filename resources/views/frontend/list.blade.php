@@ -17,9 +17,9 @@
             <input name="dataInput[jumlah_penumpang]" type="text" value={{$penumpang}} hidden>
             <input name="dataInput[tanggal]" type="text" value={{$tanggal}} hidden>
             <input name="dataInput[layanan]" type="text" value={{$layanan}} hidden>
-            <div class="h-16 flex justify-center items-center"> Terdapat <span class="font-bold px-1">
+            <div class="flex items-center justify-center h-16"> Terdapat <span class="px-1 font-bold">
                     {{$listjadwal->count()}}
-                </span> Jadwal yang masih tersedia pada tanggal <span class="font-bold px-1"> {{$tanggal}} </span>  
+                </span> Jadwal yang masih tersedia pada tanggal <span class="px-1 font-bold"> {{$tanggal}} </span>  
             </div>
             <div class="flex flex-col py-10">
                 <div class="flex w-full ml-12 text-center">
@@ -56,17 +56,19 @@
                     <div class="pl-10">
                         <div class="flex items-center font-semibold text-center">
                             <div>
-                                <div id="check-true-{{$key + 1}}"
+                                <div id="check-true-{{$jadwal->id}}"
                                     class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔
                                 </div>
-                                <div id="check-false-{{$key + 1}}" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]">
+                                <div id="check-false-{{$jadwal->id}}"
+                                    class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]">
                                 </div>
                             </div>
-                            <div id="jb-{{$key + 1}}" class="w-1/5 ">{{$jadwal->jam_brgkt}}</div>
-                            <div id="jt-{{$key + 1}}" class="w-1/5">{{$jadwal->jam_tiba}}</div>
+                            <div id="jb-{{$jadwal->id}}" class="w-1/5 ">{{$jadwal->jam_brgkt}}</div>
+                            <div id="jt-{{$jadwal->id}}" class="w-1/5">{{$jadwal->jam_tiba}}</div>
                             <div class="w-1/5">30</div>
-                            <div id="tarif-{{$key + 1}}" class="w-1/5">Rp. {{$jadwal->speedboat->harga}}.000</div>
-                            <div id="btn-pilih-{{$key + 1}}" onclick="handlePilihKapal(`{{$key + 1}}`)"
+                            <div id="tarif-{{$jadwal->id}}" class="w-1/5">Rp.
+                                {{$jadwal->speedboat->harga}}.000</div>
+                            <div id="btn-pilih-{{$jadwal->id}}" onclick="handlePilihKapal(`{{$jadwal->id}}`)"
                                 class="bg-[#151F57] cursor-pointer text-white py-1 px-10 rounded-lg">Pilih
                             </div>
 

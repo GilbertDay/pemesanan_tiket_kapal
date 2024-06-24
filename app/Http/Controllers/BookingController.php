@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Jadwal;
 use DateTime;
 use IntlDateFormatter;
 use Illuminate\Http\Request;
@@ -9,14 +9,13 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
     public function index(Request $req) {
-        // dd($req);
         $jumlah_penumpang = $req->dataInput['jumlah_penumpang'];
-        $id_kapal = $req->id;
-        $tanggal = $req->dataInput['tanggal'];
-        $layanan = $req->dataInput['layanan'];
-        $tanggalBerangkat = $this->formatTanggal($tanggal);
+        $jadwal = Jadwal::find($req->id);
 
-        return view('frontend.booking',compact('id_kapal','jumlah_penumpang','tanggalBerangkat','layanan'));
+        $layanan = $req->dataInput['layanan'];
+        $tanggalBerangkat = $this->formatTanggal($jadwal['tgl_berangkat']);
+
+        return view('frontend.booking',compact('jumlah_penumpang','tanggalBerangkat','layanan','jadwal'));
     }
 
     // Convert tanggal
