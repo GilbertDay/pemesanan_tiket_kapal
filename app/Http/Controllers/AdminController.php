@@ -5,6 +5,7 @@ use App\Models\Penumpang;
 use App\Models\Jadwal;
 use App\Models\Speedboat;
 use App\Models\Transaksi;
+use App\Models\MetodePembayaran;
 
 use Illuminate\Http\Request;
 
@@ -55,5 +56,11 @@ class AdminController extends Controller
     {
         $speedboat = Speedboat::all();
         return view('backend.speedboat', compact('speedboat'));
+    }
+
+    public function metodePembayaran()
+    {
+        $metodePembayaran = MetodePembayaran::all();
+        return view('backend.metode_pembayaran', compact('metodePembayaran'));
     }
 }

@@ -8,28 +8,43 @@
     <img class="absolute w-full h-full -z-10 " src="{{ asset('assets/bg-kapal.jpg') }}" />
 
     <nav class="flex justify-between px-20 bg-gradient-to-b mt-10 text-xl from-white to-transparent h-[350px]  ">
-        <a href="/" class="font-bold">
+        <a href="/" class="font-bold text-black no-underline">
             DisHub Hal-Bar
         </a>
-        <div class="flex gap-20 font-light tracking-wide">
-            <a href="/">Beranda</a>
-            <a href="/">Jadwal</a>
-            <a href="/">Tentang</a>
+        <div class="flex gap-10 font-light tracking-wide ">
+            <a href="/" class="text-black no-underline ">Jadwal</a>
+            <a href="/" class="text-black no-underline">Tentang</a>
+            @if(Auth::check())
+            <a href="/riwayatPesanan" class="text-black no-underline">Riwayat Pemesanan</a>
+            @endif
         </div>
+
+
+
         @if(Auth::check())
         <div class="flex gap-5 font-bold ">
             <!-- <span>{{ Auth::user()->name }}</span> -->
-            <form action="/logout" method="POST" class="inline">
-                @csrf
-                <button type="submit" class="px-2 py-1 font-bold text-white bg-red-500 rounded hover:bg-red-700">
-                    Logout
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ Auth::user()->name }}
                 </button>
-            </form>
+                <ul class="dropdown-menu dropdown-menu-lg-end">
+                    <li>
+                        <form action="/logout" method="POST" class="inline">
+                            @csrf
+                            <button type="submit" class="px-4">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
         </div>
         @else
         <div class="flex gap-5 font-bold ">
-            <a href="/login">Masuk</a>
-            <a href="/register">Daftar Akun</a>
+            <a class="text-black no-underline" href="/login">Login</a>
         </div>
         @endif
     </nav>

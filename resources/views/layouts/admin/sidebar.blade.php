@@ -35,6 +35,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Transaksi</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/metodePembayaran">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Metode Pembayaran</span></a>
+    </li>
 
 
 </ul>

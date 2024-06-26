@@ -6,19 +6,19 @@
 
 <body class="bg-[#151F57] p-3">
     <nav class="flex justify-between px-10 py-5">
-        <a href="/" class="font-bold text-white">
+        <a href="/" class="font-bold text-white no-underline">
 
             DisHub Hal-Bar
         </a>
         <div class="flex gap-10 px-16 py-2 font-bold bg-white rounded-2xl">
-            <a href="/login">Masuk</a>
-            <a class="text-[#F9A119]" href="/register">Daftar</a>
+            <a class="text-black no-underline" href="/login">Masuk</a>
+            <a href="/register" class=" text-[#F9A119]  no-underline">Daftar</a>
         </div>
     </nav>
 
     <div class="mt-10">
         <div class="text-4xl font-bold text-center text-white">Daftar Akun Baru</div>
-        <div class="font-bold text-center text-white ">Sudah memiliki akun? <a class="text-[#F9A119]"
+        <div class="font-bold text-center text-white ">Sudah memiliki akun? <a class="text-[#F9A119] no-underline"
                 href="/login">MASUK</a></div>
         <form class="flex flex-col items-center mt-8" action="/register" method="POST">
             @csrf

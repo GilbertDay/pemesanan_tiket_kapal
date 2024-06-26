@@ -33,7 +33,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-gray-800 ">Data Speedboat</h1>
+                    <h1 class="mb-6 text-lg text-gray-800 ">Data Metode Pembayaran</h1>
 
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
@@ -47,25 +47,29 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Kapasitas Kursi</th>
-                                            <th>Harga</th>
+                                            <th>Photo</th>
+                                            <th>Nama Bank</th>
+                                            <th>Nomor Rekening</th>
+                                            <th>Nama Rekening</th>
                                             <th>Aksi</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($speedboat as $s)
-                                        <tr>
-                                            <td>{{$s->nama_speedboat}}</td>
-                                            <td>{{$s->kapasitas_kursi}}</td>
-                                            <td>{{$s->harga}}</td>
+                                        @foreach($metodePembayaran as $mp)
 
+                                        <tr>
+                                            <td>{{$mp->nama_bank}}</td>
+                                            <td>{{$mp->nama_bank}}</td>
+                                            <td>{{$mp->no_rek}}</td>
+                                            <td>{{$mp->nama_rekening}}</td>
                                             <td>
                                                 <button>Edit</button>
                                                 <button>Delete</button>
                                             </td>
                                         </tr>
                                         @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
@@ -94,26 +98,6 @@
     <a class="rounded scroll-to-top" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 </body>

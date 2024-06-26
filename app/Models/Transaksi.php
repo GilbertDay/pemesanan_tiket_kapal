@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaksi extends Model
 {
     use HasFactory;
+    public $timestamps = true;
     public $incrementing = false;
     protected $fillable = [
         'user_id',
@@ -21,6 +22,7 @@ class Transaksi extends Model
         'diskon',
         'total',
     ];
+
 
     public function penumpang() {
         return $this->belongsTo('App\Models\Penumpang','penumpang_id','id');

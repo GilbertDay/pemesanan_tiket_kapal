@@ -6,13 +6,13 @@
 
 <body class="bg-[#151F57] p-3">
     <nav class="flex justify-between px-10 py-5">
-        <a href="/" class="font-bold text-white">
+        <a href="/" class="font-bold text-white no-underline">
 
             DisHub Hal-Bar
         </a>
         <div class="flex gap-10 px-16 py-2 font-bold bg-white rounded-2xl">
-            <a class="text-[#F9A119]" href="/login">Masuk</a>
-            <a href="/register">Daftar</a>
+            <a class="text-[#F9A119] no-underline" href="/login">Masuk</a>
+            <a href="/register" class="text-black no-underline">Daftar</a>
         </div>
     </nav>
 
