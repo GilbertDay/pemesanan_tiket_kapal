@@ -23,6 +23,7 @@ class Jadwal extends Model
 
     public function speedboat() {
         return $this->belongsTo('App\Models\Speedboat','speedboat_id','id');
+
     }
 
     protected static function boot()
