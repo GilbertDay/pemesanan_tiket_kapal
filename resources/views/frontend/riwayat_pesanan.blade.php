@@ -17,7 +17,7 @@
         <div class="w-full bg-white text-[#151F57] font-semibold p-3 rounded-xl">
             <div class="flex justify-between mb-4">
                 <div class="grow">
-                    <div class="mb-4">Tanggal Order : {{date('d-m-Y', strtotime($order->created_at))}} WIB</div>
+                    <div class="mb-4">Tanggal Order : {{date('d-m-Y H:m', strtotime($order->created_at))}} WIB</div>
                     <div class="flex gap-3 text-2xl">
                         <div>{{$order->jadwal->pel_asal}}</div>
                         <div>-</div>

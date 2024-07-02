@@ -13,25 +13,24 @@ class ListJadwalController extends Controller
         $listjadwal = Jadwal::where('tgl_berangkat',$req->inputData['tanggal'])->get();
         $penumpang = $req->inputData['jumlah_penumpang'];
         $layanan = $req->inputData['layanan'];
-
         $tanggal = $req->inputData['tanggal'];
 
-
-        $tanggalBerangkat = Carbon::parse($req->inputData['tanggal'])->startOfDay();
-
-        $tanggalSekarang = Carbon::now()->startOfDay();
-        $mytime = Carbon::now()->format('d-m-Y');
-
-        $selisihWaktu = $tanggalSekarang->diffInDays($tanggalBerangkat) - 1;
+        // Membuat Harga Dinamis
+        $tanggalBerangkat = Carbon::parse($tanggal);
+        $tanggalSekarang = Carbon::now();
+        $selisihWaktu = $tanggalSekarang->diffInDays($tanggalBerangkat);
 
         if(count($listjadwal) != 0) {
             if ($selisihWaktu <= 1){
+                // harga naik 15%
                 DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.15')]);
             }else if($selisihWaktu <= 3){
+                // harga naik 5%
                 DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.05')]);
-
             }
         }
+        // Membuat Harga Dinamis
+
         return view('frontend.list', compact('penumpang','tanggal','layanan','listjadwal'));
     }
 }
