@@ -14,6 +14,7 @@ class Transaksi extends Model
         'user_id',
         'penumpang_id',
         'jadwal_id',
+        'metode_pembayaran_id',
         'biaya_penanganan',
         'status',
         'jenis_layanan',
@@ -24,14 +25,17 @@ class Transaksi extends Model
     ];
 
 
-    public function penumpang() {
-        return $this->belongsTo('App\Models\Penumpang','penumpang_id','id');
-    }
+    // public function penumpang() {
+    //     return $this->belongsTo('App\Models\Penumpang','penumpang_id','id');
+    // }
     public function user() {
         return $this->belongsTo('App\Models\User','user_id','id');
     }
     public function jadwal() {
         return $this->belongsTo('App\Models\Jadwal','jadwal_id','id');
+    }
+    public function metodePembayaran() {
+        return $this->belongsTo('App\Models\MetodePembayaran','metode_pembayaran_id','id');
     }
 
     protected static function boot()

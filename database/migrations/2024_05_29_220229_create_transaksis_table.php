@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('user_id');
             $table->string('penumpang_id');
             $table->string('jadwal_id');
+            $table->string('metode_pembayaran_id');
             $table->string('biaya_penanganan');
             $table->string('status');
             $table->string('jenis_layanan');
@@ -28,8 +29,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('penumpang_id')->references('id')->on('penumpangs')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('jadwal_id')->references('id')->on('jadwals')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('metode_pembayaran_id')->references('id')->on('metode_pembayarans')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

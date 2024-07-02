@@ -30,7 +30,6 @@ class ListJadwalController extends Controller
             }
         }
         // Membuat Harga Dinamis
-
         return view('frontend.list', compact('penumpang','tanggal','layanan','listjadwal'));
     }
 }

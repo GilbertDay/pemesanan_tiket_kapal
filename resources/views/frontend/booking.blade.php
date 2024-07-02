@@ -6,7 +6,7 @@
 
 <body class="bg-[#151F57] py-5 px-10 ">
     <nav class="flex justify-between text-2xl">
-        <a href="/" class="font-bold text-white">
+        <a href="/" class="font-bold text-white no-underline">
             DisHub Hal-Bar
         </a>
     </nav>

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
     public function index(Request $req) {
+
         $jumlah_penumpang = $req->dataInput['jumlah_penumpang'];
         $jadwal = Jadwal::find($req->id);
         $metodePembayaran = MetodePembayaran::all();
@@ -33,6 +34,8 @@ class BookingController extends Controller
     }
 
     public function createOrders(Request $req){
+        // dd($req);
+
         $id_penumpang = [];
         //Fungsi untuk Menambah Penumpang di Tabel Penumpang
         for ($i = 0; $i < $req->jumlah_penumpang; $i++){
@@ -50,12 +53,12 @@ class BookingController extends Controller
                 ]);
             }
         }
-        // dd($req);
 
         Transaksi::create([
             'user_id' => $req->id_user,
             'penumpang_id' => implode(',', $id_penumpang),
             'jadwal_id' => $req->id_jadwal,
+            'metode_pembayaran_id' => $req->metodePembayaran,
             'biaya_penanganan' => $req->biaya_penanganan,
             'status' => 'pending',
             'jenis_layanan' => $req->layanan == 'pesanan_pribadi' ? 'Reguler' : 'Carter',

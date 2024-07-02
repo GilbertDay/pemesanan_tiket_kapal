@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\DetailPesananController;
 use App\Http\Controllers\RiwayatPemesanan;
 
 
@@ -31,6 +32,7 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
 
 Route::middleware(['login'])->group(function() {
     Route::post('/pesan/{id}', [BookingController::class, 'index']);
+    Route::post('/detailPesanan/{id}', [DetailPesananController::class, 'index']);
     Route::post('/saveOrders', [BookingController::class, 'createOrders']);
     Route::get('/riwayatPesanan', [RiwayatPemesanan::class, 'index']);
 });
