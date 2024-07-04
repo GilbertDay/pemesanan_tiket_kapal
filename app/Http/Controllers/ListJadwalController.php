@@ -10,10 +10,22 @@ use Carbon\Carbon;
 class ListJadwalController extends Controller
 {
     public function index(Request $req) {
-        $listjadwal = Jadwal::where('tgl_berangkat',$req->inputData['tanggal'])->get();
+        $tanggal = $req->inputData['tanggal'];
+        $listjadwal;
         $penumpang = $req->inputData['jumlah_penumpang'];
         $layanan = $req->inputData['layanan'];
-        $tanggal = $req->inputData['tanggal'];
+
+        $soldTiket = Jadwal::where('tgl_berangkat',$tanggal)->where('tiket_tersedia', '<', $penumpang)->get(); //menampilkan daftar tiket yang sudah habis atau tiket tersedia kurang dari jumlah penumpang
+
+        if ($layanan == 'carter') {
+            //list jadwal jika carter
+            $listjadwal = Jadwal::where('tgl_berangkat', $req->inputData['tanggal'])
+                                ->whereHas('speedboat', function($query) {
+                                    $query->whereColumn('kapasitas_kursi', 'tiket_tersedia'); // bandingkan kapasitas kursi dengan jumlah tiket tersedia di tabel jadwal
+                                })->get();
+        }else {
+            $listjadwal = Jadwal::where('tgl_berangkat',$tanggal)->where('tiket_tersedia', '>=', $penumpang)->get(); //list jadwal default penumpang reguler
+        }
 
         // Membuat Harga Dinamis
         $tanggalBerangkat = Carbon::parse($tanggal);
@@ -22,14 +34,13 @@ class ListJadwalController extends Controller
 
         if(count($listjadwal) != 0) {
             if ($selisihWaktu <= 1){
-                // harga naik 15%
-                DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.15')]);
+                DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.15')]); // harga naik 15%
             }else if($selisihWaktu <= 3){
-                // harga naik 5%
-                DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.05')]);
+                DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.05')]); // harga naik 5%
             }
         }
         // Membuat Harga Dinamis
-        return view('frontend.list', compact('penumpang','tanggal','layanan','listjadwal'));
+
+        return view('frontend.list', compact('penumpang','tanggal','layanan','listjadwal', 'soldTiket'));
     }
 }

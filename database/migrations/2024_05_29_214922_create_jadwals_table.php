@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('tgl_berangkat');
             $table->time('jam_brgkt');
             $table->time('jam_tiba');
+            $table->integer('tiket_tersedia');
             $table->timestamps();
 
             $table->foreign('speedboat_id')->references('id')->on('speedboats')->onDelete('cascade')->onUpdate('cascade');

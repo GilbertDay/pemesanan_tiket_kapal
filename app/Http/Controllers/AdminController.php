@@ -33,6 +33,7 @@ class AdminController extends Controller
         return view('backend.jadwal', compact('jadwal','speedboat'));
     }
     public function tambahJadwal(Request $req){
+        $speedboat = Speedboat::find($req->speedboat);
         // dd($req);
         Jadwal::create([
             'speedboat_id' => $req->speedboat,
@@ -41,6 +42,7 @@ class AdminController extends Controller
             'tgl_berangkat' => $req->tgl_berangkat,
             'jam_brgkt' => $req->jam_brgkt,
             'jam_tiba' => $req->jam_tiba,
+            'tiket_tersedia' => $speedboat->kapasitas_kursi,
         ]);
         return redirect('/admin/jadwal');
     }

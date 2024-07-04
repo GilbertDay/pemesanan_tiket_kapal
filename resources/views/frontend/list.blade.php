@@ -31,21 +31,24 @@
 
                 <!-- Jika Kosong -->
 
-                <!-- <div class="mt-5 text-gray-500">
-                    <div class="w-1/5 mb-3 font-bold">PALAMEA EXPRESS</div>
+                @foreach($soldTiket as $key=>$sold)
+                <div class="mt-5 text-gray-500">
+                    <div class="w-1/5 mb-3 font-bold">{{$sold->speedboat->nama_speedboat}}</div>
                     <div class="pl-10">
                         <div class="flex font-semibold text-center">
                             <div id="check" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]"></div>
-                            <div class="w-1/5 ">06.30</div>
-                            <div class="w-1/5">07.15</div>
+                            <div class="w-1/5 ">{{$sold->jam_brgkt}}</div>
+                            <div class="w-1/5">{{$sold->jam_tiba}}</div>
                             <div class="w-1/5">0</div>
-                            <div class="w-1/5">Rp.50.000</div>
+                            <div class="w-1/5">Rp.
+                                {{$sold->speedboat->harga}}.000</div>
                             <div class="px-10 py-1 text-white bg-gray-500 rounded-lg cursor-pointer">Sold
                             </div>
 
                         </div>
                     </div>
-                </div> -->
+                </div>
+                @endforeach
 
                 <!-- End Jika Kosong -->
 

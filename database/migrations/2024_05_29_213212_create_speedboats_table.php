@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('nama_speedboat');
             $table->integer('kapasitas_kursi');
-            $table->integer('kursi_tersedia');
+            // $table->integer('kursi_tersedia');
             $table->integer('harga');
             $table->timestamps();
         });

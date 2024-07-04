@@ -88,10 +88,21 @@
                     NIK
                     <div class="text-lg text-black">{{$penumpang->id}}</div>
                 </div>
+                @if($penumpang->nama_instansi != '')
+                <div class="text-xs font-semibold text-gray-400">
+                    Nama Pemesan
+                    <div class="text-lg text-black">{{$penumpang->nama}}</div>
+                </div>
+                <div class="text-xs font-semibold text-gray-400">
+                    Nama Instasi
+                    <div class="text-lg text-black">{{$penumpang->nama_instansi}}</div>
+                </div>
+                @else
                 <div class="text-xs font-semibold text-gray-400">
                     Nama Penumpang
                     <div class="text-lg text-black">{{$penumpang->nama}}</div>
                 </div>
+                @endif
                 <div class="text-xs font-semibold text-gray-400">
                     Jenis Kelamin
                     <div class="text-lg text-black">{{$penumpang->jenis_kelamin}}</div>

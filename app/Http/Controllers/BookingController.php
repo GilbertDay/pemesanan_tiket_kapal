@@ -5,6 +5,7 @@ use App\Models\Jadwal;
 use App\Models\MetodePembayaran;
 use App\Models\Penumpang;
 use App\Models\Transaksi;
+use Illuminate\Support\Facades\DB;
 use DateTime;
 use IntlDateFormatter;
 use Illuminate\Http\Request;
@@ -53,6 +54,10 @@ class BookingController extends Controller
                 ]);
             }
         }
+
+        Jadwal::find($req->id_jadwal)->update([
+            'tiket_tersedia' => DB::raw('tiket_tersedia - ' . $req->jumlah_penumpang)
+        ]);
 
         Transaksi::create([
             'user_id' => $req->id_user,

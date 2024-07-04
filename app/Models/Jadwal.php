@@ -19,6 +19,7 @@ class Jadwal extends Model
         'tgl_berangkat',
         'jam_brgkt',
         'jam_tiba',
+        'tiket_tersedia'
     ];
 
     public function speedboat() {
