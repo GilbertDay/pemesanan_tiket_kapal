@@ -23,18 +23,17 @@ class AdminController extends Controller
 
     public function penumpang()
     {
-        $penumpang = Penumpang::all();
+        $penumpang = Penumpang::paginate(10);
         return view('backend.penumpang', compact('penumpang'));
     }
     public function jadwal()
     {
-        $jadwal = Jadwal::all();
+        $jadwal = Jadwal::orderBy('id', 'desc')->paginate(5);
         $speedboat = Speedboat::all();
         return view('backend.jadwal', compact('jadwal','speedboat'));
     }
     public function tambahJadwal(Request $req){
         $speedboat = Speedboat::find($req->speedboat);
-        // dd($req);
         Jadwal::create([
             'speedboat_id' => $req->speedboat,
             'pel_asal' => $req->pel_asal,
@@ -47,16 +46,40 @@ class AdminController extends Controller
         return redirect('/admin/jadwal');
     }
 
+    public function tambahSpeedboat(Request $req){
+        Speedboat::create([
+            'nama_speedboat' => $req->nama_speedboat,
+            'kapasitas_kursi' => $req->kapasitas_kursi,
+            'harga' => $req->harga_speedboat,
+            'harga_normal' => $req->harga_speedboat,
+        ]);
+        return redirect('/admin/speedboat');
+    }
+
+    public function tambahMetodePembayaran(Request $req){
+        $fileName = time().$req->file('logo_bank')->getClientOriginalName();
+        $path = $req->file('logo_bank')->storeAs('logo_bank', $fileName, 'public');
+
+        MetodePembayaran::create([
+            'nama_bank' => $req->nama_bank,
+            'no_rek' => $req->nomor_rekening,
+            'nama_rekening' => $req->nama_rekening,
+            'img' => '/storage/'.$path,
+        ]);
+        return redirect('/admin/metodePembayaran');
+    }
+
     public function transaksi()
     {
+        $transaksi_all = Transaksi::all();
         $transaksi_sukses = Transaksi::where('status','success')->get();
         $transaksi_pending = Transaksi::where('status','pending')->get();
 
-        return view('backend.transaksi', compact('transaksi_sukses','transaksi_pending'));
+        return view('backend.transaksi', compact('transaksi_sukses','transaksi_pending','transaksi_all'));
     }
     public function speedboat()
     {
-        $speedboat = Speedboat::all();
+        $speedboat = Speedboat::orderBy('id', 'desc')->paginate(5);
         return view('backend.speedboat', compact('speedboat'));
     }
 

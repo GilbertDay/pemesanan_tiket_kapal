@@ -26,8 +26,17 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     Route::get('/speedboat', [AdminController::class, 'speedboat']);
     Route::get('/transaksi', [AdminController::class, 'transaksi']);
     Route::get('/metodePembayaran', [AdminController::class, 'metodePembayaran']);
-    // Tambah Data
+    // Tambah Data Jadwal
     Route::post('/tambahJadwal', [AdminController::class, 'tambahJadwal']);
+    //Edit Data Jadwal
+    //Hapus Data Jadwal
+    // Tambah Data Speedboat
+    Route::post('/tambahSpeedboat', [AdminController::class, 'tambahSpeedboat']);
+    //Edit Data Speedboat
+    //Hapus Data Speedboat
+
+    // Tambah Data Metode Pembayaran
+    Route::post('/tambahMetodePembayaran', [AdminController::class, 'tambahMetodePembayaran']);
 });
 
 Route::middleware(['login'])->group(function() {
@@ -35,6 +44,7 @@ Route::middleware(['login'])->group(function() {
     Route::post('/detailPesanan/{id}', [DetailPesananController::class, 'index']);
     Route::post('/saveOrders', [BookingController::class, 'createOrders']);
     Route::get('/riwayatPesanan', [RiwayatPemesanan::class, 'index']);
+    Route::post('/uploadBuktiBayar', [RiwayatPemesanan::class, 'uploadBuktiBayar']);
 });
 
 Route::post('/tampil-list', [App\Http\Controllers\ListJadwalController::class, 'index']);

@@ -37,6 +37,8 @@ class ListJadwalController extends Controller
                 DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.15')]); // harga naik 15%
             }else if($selisihWaktu <= 3){
                 DB::table('speedboats')->update(['harga' => DB::raw('harga_normal * 1.05')]); // harga naik 5%
+            }else{
+                DB::table('speedboats')->update(['harga' => DB::raw('harga_normal')]); // harga naik 5%
             }
         }
         // Membuat Harga Dinamis

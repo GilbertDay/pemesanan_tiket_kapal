@@ -49,7 +49,7 @@
                                             <th>Jumlah Kursi</th>
                                             <th>No Telepon</th>
                                             <th>Jumlah Pembayaran</th>
-                                            <th>Detail</th>
+                                            <th>Bukti Bayar</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -61,7 +61,8 @@
                                             <td>{{$trx->jumlah_kursi}}</td>
                                             <td>{{$trx->user->no_telp}}</td>
                                             <td>{{$trx->total}}</td>
-                                            <td><button class="p-2 text-white bg-blue-500 rounded-xl">Detail
+                                            <td><button type="button" data-toggle="modal" data-target="#{{$trx->id}}"
+                                                    class="p-2 text-white bg-blue-500 rounded-xl">Detail
                                                     Pesanan</button></td>
                                             <td>
                                                 <button class="p-2 text-white bg-green-500 rounded-xl">Accept</button>
@@ -83,7 +84,6 @@
                                     <thead>
                                         <tr>
                                             <th>Nama Pemesan</th>
-
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
                                             <th>No Telepon</th>
@@ -151,7 +151,33 @@
         </div>
     </div>
 
+    <!-- Form Tambah Jadwal  -->
+    @foreach($transaksi_all as $trx)
+    <div class="modal fade" id="{{$trx->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="buktiBayarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="buktiBayarLabel">Bukti Bayar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="flex items-center justify-center w-full">
+                        <img src="{{$trx->bukti_bayar}}" alt="" class="w-1/2">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
+                        data-dismiss="modal">Close</button>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    <!-- End Form Tambah Jadwal -->
 </body>
 
 </html>

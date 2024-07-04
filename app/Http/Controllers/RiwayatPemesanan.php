@@ -13,4 +13,13 @@ class RiwayatPemesanan extends Controller
         $orders = Transaksi::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
         return view('frontend.riwayat_pesanan', compact('orders'));
     }
+
+    public function uploadBuktiBayar(Request $req){
+        $fileName = time().$req->file('bukti_bayar')->getClientOriginalName();
+        $path = $req->file('bukti_bayar')->storeAs('bukti_bayar', $fileName, 'public');
+
+        Transaksi::find($req->transaksi_id)->update(['bukti_bayar' => '/storage/'.$path]); // harga naik 15%
+
+        return redirect('/');
+    }
 }

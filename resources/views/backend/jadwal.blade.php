@@ -33,11 +33,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class=" mb-6 text-gray-800 text-lg">Data Jadwal</h1>
+                    <h1 class="mb-6 text-lg text-gray-800 ">Data Jadwal</h1>
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
+                    <div class="mb-4 shadow card">
+                        <div class="py-3 card-header">
                             <button type="button" data-toggle="modal" data-target="#tambahJadwal"
                                 class="rounded-full border-2 px-3 py-2 border-slate-500 bg-[#151F57] hover:text-white hover:no-underline text-stone-100 text-center">Tambah
                                 Jadwal</button>
@@ -73,6 +73,9 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="flex justify-end px-3">
+                            {{ $jadwal->links() }}
+                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -80,9 +83,9 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                    <div class="my-auto text-center copyright">
                         <span>Copyright &copy; Your Website 2020</span>
                     </div>
                 </div>
@@ -94,7 +97,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class="rounded scroll-to-top" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
@@ -115,22 +118,22 @@
                     <form action="/admin/tambahJadwal" method="POST" class="text-black">
                         @csrf
 
-                        <label class="block mb-1 font-bold  text-start" for="inline-full-name">
+                        <label class="block mb-1 font-bold text-start" for="inline-full-name">
                             Nama Speedboat
                         </label>
                         <select id="speedboat" name="speedboat" required
-                            class="text-gray-800 bg-gray-200 border-2 border-gray-200 focus:border-purple-500 rounded mb-2 px-1 py-2 w-full">
+                            class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500">
                             <option value="" class="hidden">Pilih Speeboat</option>
                             @foreach($speedboat as $spd)
                             <option value="{{$spd->id}}">{{$spd->nama_speedboat}}</option>
                             @endforeach
                         </select>
 
-                        <label class="block mb-1 font-bold  text-start" for="inline-full-name">
+                        <label class="block mb-1 font-bold text-start" for="inline-full-name">
                             Tanggal Keberangkatan
                         </label>
                         <input
-                            class="text-gray-800 bg-gray-200 border-2 border-gray-200 focus:border-purple-500 rounded mb-2 px-1 py-2 w-full"
+                            class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
                             name="tgl_berangkat" type="text" id="date" required
                             placeholder="Pilih Tanggal Keberangkatan" />
 
@@ -140,7 +143,7 @@
                                     Pelabuhan Asal
                                 </label>
                                 <select id="pelabuhan-asal" name="pel_asal" required onchange="setTujuan()"
-                                    class="text-gray-800 bg-gray-200 border-2 border-gray-200 focus:border-purple-500 rounded mb-2 px-1 py-2 w-full">
+                                    class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500">
                                     <option class="hidden">Pilih Pelabuhan Asal</option>
                                     <option value="Pelabuhan Laut Jailolo">Pelabuhan Laut Jailolo</option>
                                     <option value="Pelabuhan Bastion Ternate">Pelabuhan Bastion Ternate</option>
@@ -152,7 +155,7 @@
                                     Pelabuhan Tujuan
                                 </label>
                                 <input type="text" id="pelabuhan-tujuan" name="pel_tujuan" value="" required readonly
-                                    class="text-gray-800 bg-gray-200 border-2 border-gray-200 focus:border-purple-500 rounded mb-2 px-1 py-2 w-full">
+                                    class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500">
                             </div>
 
                         </div>
@@ -163,24 +166,22 @@
                                     Jam Berangkat
                                 </label>
                                 <input name="jam_brgkt" required
-                                    class=" w-full mb-3 px-1 py-2 leading-tight text-gray-800 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+                                    class="w-full px-1 py-2 mb-3 leading-tight text-gray-800 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
                                     id="inline-full-name" type="time" />
                             </div>
                             <div class="w-1/2">
-                                <label class="block mb-1 font-bold  text-start" for="inline-full-name">
+                                <label class="block mb-1 font-bold text-start" for="inline-full-name">
                                     Jam Tiba
                                 </label>
                                 <input name="jam_tiba" required
-                                    class=" w-full mb-3 px-1 py-2 leading-tight text-gray-800 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+                                    class="w-full px-1 py-2 mb-3 leading-tight text-gray-800 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
                                     id="inline-full-name" type="time" />
                             </div>
                         </div>
-
-
                         <div class="modal-footer">
-                            <button type="button" class="px-2 py-2 rounded-lg text-white bg-gray-600"
+                            <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
                                 data-dismiss="modal">Batal</button>
-                            <button type="submit" class="px-2 py-2 rounded-lg text-white bg-purple-500">Simpan</button>
+                            <button type="submit" class="px-2 py-2 text-white bg-purple-500 rounded-lg">Simpan</button>
                         </div>
                     </form>
                 </div>

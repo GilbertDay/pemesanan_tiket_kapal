@@ -16,6 +16,7 @@ class Speedboat extends Model
         'nama_speedboat',
         'kapasitas_kursi',
         'harga',
+        'harga_normal',
     ];
 
     protected static function boot()

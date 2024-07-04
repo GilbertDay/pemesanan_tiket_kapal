@@ -5,6 +5,7 @@
 @section('content')
 @inject('carbon', 'Carbon\Carbon')
 
+
 <body class="bg-[#151F57] py-5 px-10 ">
     <nav class="flex justify-between text-2xl">
         <a href="/" class="font-bold text-white no-underline">
@@ -27,8 +28,14 @@
                     <div class="font-bold">{{$transaksi->user->name}}</div>
                     <div class="font-bold">{{$transaksi->user->no_telp}}</div>
                     <div class="font-bold">{{$transaksi->user->email}}</div>
-                    <div>
-                        {{$transaksi->metodePembayaran->nama_bank}} - {{$transaksi->metodePembayaran->no_rek}}
+                    <div class="flex gap-3">
+                        <div class="flex items-center w-10">
+                            <img src="{{asset($transaksi->metodePembayaran->img)}}" alt="">
+                        </div>
+                        <div class="flex flex-col">
+                            <div>{{$transaksi->metodePembayaran->nama_rekening}}</div>
+                            <div class="font-semibold">{{$transaksi->metodePembayaran->no_rek}}</div>
+                        </div>
                     </div>
                     <div class="flex items-center gap-3">
                         <div
@@ -36,7 +43,9 @@
                             {{$transaksi->status == 'pending' ? 'Menunggu Pembayaran' : 'Pembayaran Berhasil' }}
                         </div>
                         @if($transaksi->status == 'pending')
-                        <div>Upload Bukti Bayar</div>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#uploadBuktiBayar">
+                            Upload Bukti Bayar
+                        </button>
                         @endif
                     </div>
                 </div>
@@ -123,6 +132,39 @@
             @endforeach
         </div>
     </div>
+    </div>
+
+    <!-- Form Tambah Jadwal  -->
+    <div class="modal fade" id="uploadBuktiBayar" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="uploadBuktiBayarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="buktiBayarLabel">Bukti Bayar</h5>
+
+                </div>
+                <div class="modal-body">
+                    <form action="/uploadBuktiBayar" method="POST" class="text-black" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name="transaksi_id" value="{{$transaksi->id}}" hidden>
+                        <div>
+                            <label class="block mb-1 font-bold text-start" for="inline-full-name">
+                                Upload Bukti Bayar
+                            </label>
+                            <input
+                                class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
+                                name="bukti_bayar" type="file" required />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
+                                data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="px-2 py-2 text-white bg-purple-500 rounded-lg">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
