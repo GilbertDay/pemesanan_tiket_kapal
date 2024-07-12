@@ -83,7 +83,7 @@
                 </div>
                 <div class="text-xs font-semibold text-gray-400">
                     Harga
-                    <div class="text-lg text-black">IDR {{$transaksi->total}}K</div>
+                    <div class="text-lg text-black">Rp {{$transaksi->total}}K</div>
                 </div>
             </div>
         </div>

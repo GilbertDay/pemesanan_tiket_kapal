@@ -64,20 +64,20 @@
                             <div class="text-sm font-semibold text-gray-600">Penumpang Keberangkatan</div>
                             <div class="font-semibold">
                                 {{$layanan == 'pesanan_pribadi' ? $jumlah_penumpang : $jadwal->speedboat->kapasitas_kursi}}x
-                                IDR {{$jadwal->speedboat->harga}}K</div>
+                                Rp.{{$jadwal->speedboat->harga}}.000</div>
                         </div>
                         <div class="flex justify-between mt-2">
                             <div class="text-sm font-semibold text-gray-600">Biaya Penanganan</div>
-                            <div class="font-semibold">5K</div>
+                            <div class="font-semibold">Rp.5.000</div>
                         </div>
                         <div class="flex justify-between mt-2">
                             <div class="text-sm font-semibold text-gray-600">Diskon</div>
-                            <div class="font-semibold">{{$layanan == 'pesanan_pribadi' ? '0' : '50K'}}</div>
+                            <div class="font-semibold">{{$layanan == 'pesanan_pribadi' ? '0' : 'Rp.50.000'}}</div>
                         </div>
                         <div class="flex justify-between mt-2">
                             <div class="text-sm font-semibold text-gray-600">Total Harga</div>
-                            <div class="font-semibold">IDR
-                                {{($layanan == 'pesanan_pribadi' ? $jumlah_penumpang * $jadwal->speedboat->harga : $jadwal->speedboat->kapasitas_kursi * $jadwal->speedboat->harga - 50 ) + 5}}K
+                            <div class="font-semibold">Rp.
+                                {{($layanan == 'pesanan_pribadi' ? $jumlah_penumpang * $jadwal->speedboat->harga : $jadwal->speedboat->kapasitas_kursi * $jadwal->speedboat->harga - 50 ) + 5}}.000
                             </div>
                         </div>
                         <div>

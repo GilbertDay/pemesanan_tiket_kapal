@@ -5,7 +5,7 @@
 @section('content')
 
 <body>
-    <img class="absolute w-full h-full -z-10 " src="{{ asset('assets/bg-kapal.jpg') }}" />
+    <img class="absolute w-full h-full -z-10 " src="{{ asset('assets/Pelabuhan.jpg')}}" />
 
     <nav class="flex justify-between px-20 bg-gradient-to-b mt-10 text-xl from-white to-transparent h-[350px]  ">
         <a href="/" class="font-bold text-black no-underline">

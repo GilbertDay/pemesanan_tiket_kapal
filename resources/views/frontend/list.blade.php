@@ -23,23 +23,25 @@
             </div>
             <div class="flex flex-col py-10">
                 <div class="flex w-full ml-12 text-center">
-                    <div class="w-1/5 ml-6 font-semibold">Jam Berangkat</div>
-                    <div class="w-1/5 -ml-4 font-semibold">Jam Tiba</div>
-                    <div class="w-1/5 -ml-2 font-semibold">Jumlah Kursi</div>
-                    <div class="w-1/5 -ml-3 font-semibold">Harga (IDR)</div>
+                <div class="w-1/5 ml-3 font-semibold">Nama Speedboat</div>
+                    <div class="w-1/5 -ml-12 font-semibold">Jam Berangkat</div>
+                    <div class="w-1/5 -ml-10 font-semibold">Jam Tiba</div>
+                    <div class="w-1/5 -ml-10 font-semibold">Jumlah Kursi</div>
+                    <div class="w-1/5 -ml-8 font-semibold">Harga (Rp.)</div>
                 </div>
 
                 <!-- Jika Kosong -->
 
                 @foreach($soldTiket as $key=>$sold)
                 <div class="mt-5 text-gray-500">
-                    <div class="w-1/5 mb-3 font-bold">{{$sold->speedboat->nama_speedboat}}</div>
+                    
                     <div class="pl-10">
                         <div class="flex font-semibold text-center">
                             <div id="check" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]"></div>
+                            <div class="w-1/5 mb-3 font-bold">{{$sold->speedboat->nama_speedboat}}</div>
                             <div class="w-1/5 ">{{$sold->jam_brgkt}}</div>
                             <div class="w-1/5">{{$sold->jam_tiba}}</div>
-                            <div class="w-1/5">0</div>
+                            <div class="w-1/5">0.</div>
                             <div class="w-1/5">Rp.
                                 {{$sold->speedboat->harga}}.000</div>
                             <div class="px-10 py-1 text-white bg-gray-500 rounded-lg cursor-pointer">Sold
@@ -55,10 +57,9 @@
 
                 @foreach($listjadwal as $key=>$jadwal)
                 <div class="mt-5">
-                    <div class="w-1/5 font-bold text-[#151F57] mb-3">{{$jadwal->speedboat->nama_speedboat}}</div>
-                    <div class="pl-10">
+                    <div class="pl-8">
                         <div class="flex items-center font-semibold text-center">
-                            <div>
+                        <div>
                                 <div id="check-true-{{$jadwal->id}}"
                                     class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔
                                 </div>
@@ -66,6 +67,7 @@
                                     class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]">
                                 </div>
                             </div>
+                            <div class="w-1/5 font-bold text-[#151F57] mb-3">{{$jadwal->speedboat->nama_speedboat}}</div>
                             <div id="jb-{{$jadwal->id}}" class="w-1/5 ">{{$jadwal->jam_brgkt}}</div>
                             <div id="jt-{{$jadwal->id}}" class="w-1/5">{{$jadwal->jam_tiba}}</div>
                             <div class="w-1/5">30</div>
