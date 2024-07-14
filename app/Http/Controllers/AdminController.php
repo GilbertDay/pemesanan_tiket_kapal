@@ -6,6 +6,7 @@ use App\Models\Jadwal;
 use App\Models\Speedboat;
 use App\Models\Transaksi;
 use App\Models\MetodePembayaran;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class AdminController extends Controller
             'speedboat_id' => $req->speedboat,
             'pel_asal' => $req->pel_asal,
             'pel_tujuan' => $req->pel_tujuan,
-            'tgl_berangkat' => $req->tgl_berangkat,
+            'tgl_berangkat' => Carbon::parse($req->tgl_berangkat)->format('Y-m-d'),
             'jam_brgkt' => $req->jam_brgkt,
             'jam_tiba' => $req->jam_tiba,
             'tiket_tersedia' => $speedboat->kapasitas_kursi,
