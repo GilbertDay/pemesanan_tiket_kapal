@@ -16,6 +16,7 @@
 </head>
 
 <body id="page-top">
+
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
@@ -34,6 +35,11 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="mb-6 text-lg text-gray-800 ">Data Speedboat</h1>
+                    @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
 
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
@@ -58,11 +64,16 @@
                                         <tr>
                                             <td>{{$s->nama_speedboat}}</td>
                                             <td>{{$s->kapasitas_kursi}}</td>
-                                            <td>{{$s->harga}}</td>
+                                            <td>{{$s->harga_normal}}</td>
 
                                             <td>
-                                                <button class="p-2 text-black bg-blue-400 rounded-lg">Edit</button>
-                                                <button class="p-2 text-black bg-red-500 rounded-lg">Delete</button>
+                                                <button type="button" data-toggle="modal"
+                                                    data-target="#updateSpeedboat{{$s->id}}"
+                                                    class="p-2 text-black bg-blue-400 rounded-lg">Edit</button>
+                                                <!-- Trigger the modal with a button -->
+                                                <button type="button" data-toggle="modal"
+                                                    data-target="#deleteSpeedboat{{ $s->id }}"
+                                                    class="p-2 text-black bg-red-500 rounded-lg">Delete</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -147,27 +158,31 @@
     </div>
     <!-- End Form Tambah Jadwal -->
 
-    <!-- Edit Tambah Jadwal  -->
-    <!-- <div class="modal fade" id="tambahSpeedboat" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="tambahSpeedboatLabel" aria-hidden="true">
+    <!-- Form Update Jadwal  -->
+    @foreach($speedboat as $spd)
+    <div class="modal fade" id="updateSpeedboat{{$spd->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="updateSpeedboatLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="tambahSpeedboatLabel">Tambah Jadwal</h5>
+                    <h5 class="modal-title" id="updateSpeedboatLabel">Update Jadwal</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/admin/tambahSpeedboat" method="POST" class="text-black">
+                    <form action="/admin/updateSpeedboat" method="POST" class="text-black">
                         @csrf
+                        <!-- Assuming we use a hidden input to pass the ID of the speedboat schedule -->
+                        <input type="hidden" name="id_speedboat" value="{{ $spd->id }}">
+
                         <label class="block mb-1 font-bold text-start" for="inline-full-name">
                             Nama Speedboat
                         </label>
                         <input
                             class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
-                            name="nama_speedboat" type="text" required placeholder="Nama Speedboat" />
-
+                            name="nama_speedboat" type="text" required placeholder="Nama Speedboat"
+                            value="{{ $spd->nama_speedboat }}" />
 
                         <div class="flex gap-4">
                             <div class="w-1/2">
@@ -176,7 +191,8 @@
                                 </label>
                                 <input
                                     class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
-                                    name="kapasitas_kursi" type="number" required placeholder="Kapasitas Kursi" />
+                                    name="kapasitas_kursi" type="number" required placeholder="Kapasitas Kursi"
+                                    value="{{ $spd->kapasitas_kursi }}" />
                             </div>
                             <div class="w-1/2">
                                 <label class="block mb-1 font-bold text-start" for="inline-full-name">
@@ -184,7 +200,8 @@
                                 </label>
                                 <input
                                     class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
-                                    name="harga_speedboat" type="number" required placeholder="Harga Speedboat" />
+                                    name="harga" type="number" required placeholder="Harga Speedboat"
+                                    value="{{ $spd->harga_normal }}" />
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -196,8 +213,38 @@
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- End Form Edit Jadwal -->
+    </div>
+
+
+
+    <!-- Modal for deleting the specific speedboat -->
+    <div class="modal fade" id="deleteSpeedboat{{$spd->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="deleteSpeedboatLabel{{$spd->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteSpeedboatLabel{{$spd->id }}">Delete Jadwal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete {{$spd->nama_speedboat }}?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
+                        data-dismiss="modal">Cancel</button>
+                    <form action="/admin/deleteSpeedboat" method="POST">
+                        @csrf
+                        <input type="hidden" name="id_speedboat" value="{{$spd->id }}">
+                        <button type="submit" class="px-2 py-2 text-white bg-red-500 rounded-lg">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @endforeach
 
     @include('layouts.admin.script')
 

@@ -56,6 +56,43 @@ class AdminController extends Controller
         ]);
         return redirect('/admin/speedboat');
     }
+    public function updateSpeedboat(Request $req) {
+
+        // Validate the request data
+        // $validated = $req->validate([
+        //     'id_speedboat' => 'required|exists:speedboats,id',
+        //     'nama_speedboat' => 'required|string|max:255',
+        //     'kapasitas_kursi' => 'required|integer|min:1',
+        //     'harga_speedboat' => 'required|numeric|min:0',
+        // ]);
+
+        // Find the speedboat by ID
+        $speedboat = Speedboat::find($req->id_speedboat);
+
+        // Update the speedboat attributes
+        $speedboat->nama_speedboat = $req->nama_speedboat;
+        $speedboat->kapasitas_kursi = $req->kapasitas_kursi;
+        $speedboat->harga = $req->harga;
+        $speedboat->harga_normal = $req->harga;
+
+        // Save the changes
+        $speedboat->save();
+
+        // Redirect to the speedboat list page with a success message
+        return redirect('/admin/speedboat')->with('success', 'Speedboat Update successfully');
+    }
+
+    public function deleteSpeedboat(Request $req) {
+
+        $speedboat = Speedboat::find($req->id_speedboat);
+
+        // Delete the speedboat
+        $speedboat->delete();
+
+        // Redirect to the speedboat list page with a success message
+        return redirect('/admin/speedboat')->with('success', 'Speedboat deleted successfully');
+    }
+
 
     public function tambahMetodePembayaran(Request $req){
         $fileName = time().$req->file('logo_bank')->getClientOriginalName();
