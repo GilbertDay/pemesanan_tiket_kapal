@@ -16,7 +16,7 @@
     $(function () {
         $("#date").datepicker({
             minDate: 0,
-            dateFormat: "yy-mm-dd",
+            dateFormat: "dd-mm-yy",
             maxDate: "+2W"
         });
     });

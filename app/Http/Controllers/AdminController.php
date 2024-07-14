@@ -77,6 +77,17 @@ class AdminController extends Controller
 
         return view('backend.transaksi', compact('transaksi_sukses','transaksi_pending','transaksi_all'));
     }
+
+    public function acceptTransaksi(Request $req){
+        $transaksi = Transaksi::find($req->id)->update(['status' => 'success']);
+        return redirect('/admin/transaksi');
+    }
+
+    public function rejectTransaksi(Request $req){
+        $transaksi = Transaksi::find($req->id)->update(['status' => 'reject']);
+        return redirect('/admin/transaksi');
+    }
+
     public function speedboat()
     {
         $speedboat = Speedboat::orderBy('id', 'desc')->paginate(5);

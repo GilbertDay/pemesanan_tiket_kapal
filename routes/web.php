@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DetailPesananController;
 use App\Http\Controllers\RiwayatPemesanan;
+use App\Http\Controllers\CetakTiketController;
 
 
 Route::get('/', function () {
@@ -37,6 +38,8 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
 
     // Tambah Data Metode Pembayaran
     Route::post('/tambahMetodePembayaran', [AdminController::class, 'tambahMetodePembayaran']);
+    Route::post('/accTransaksi/{id}', [AdminController::class, 'acceptTransaksi']);
+    Route::post('/rejectTransaksi/{id}', [AdminController::class, 'rejectTransaksi']);
 });
 
 Route::middleware(['login'])->group(function() {
@@ -45,6 +48,7 @@ Route::middleware(['login'])->group(function() {
     Route::post('/saveOrders', [BookingController::class, 'createOrders']);
     Route::get('/riwayatPesanan', [RiwayatPemesanan::class, 'index']);
     Route::post('/uploadBuktiBayar', [RiwayatPemesanan::class, 'uploadBuktiBayar']);
+    Route::post('/cetakTiket/{id}', [CetakTiketController::class, 'index']);
 });
 
 Route::post('/tampil-list', [App\Http\Controllers\ListJadwalController::class, 'index']);

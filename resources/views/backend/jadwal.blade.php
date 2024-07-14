@@ -20,6 +20,7 @@
     <div id="wrapper">
         <!-- Sidebar -->
         @include('layouts.admin.sidebar')
+        @inject('carbon', 'Carbon\Carbon')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -61,7 +62,7 @@
                                             <td>{{$j->speedboat->nama_speedboat}}</td>
                                             <td>{{$j->pel_asal}}</td>
                                             <td>{{$j->pel_tujuan}}</td>
-                                            <td>{{$j->tgl_berangkat}}</td>
+                                            <td>{{$carbon::parse($j->tgl_berangkat)->format('d-m-Y')}}</td>
                                             <td>{{$j->jam_brgkt}} - {{$j->jam_tiba}} </td>
                                             <td>
                                                 <button>Edit</button>

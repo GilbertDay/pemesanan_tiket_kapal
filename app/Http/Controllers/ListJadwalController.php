@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class ListJadwalController extends Controller
 {
     public function index(Request $req) {
-        $tanggal = $req->inputData['tanggal'];
+        $tanggal = Carbon::parse($req->inputData['tanggal'])->format('Y-m-d');
         $listjadwal;
         $penumpang = $req->inputData['jumlah_penumpang'];
         $layanan = $req->inputData['layanan'];
@@ -26,7 +26,6 @@ class ListJadwalController extends Controller
         }else {
             $listjadwal = Jadwal::where('tgl_berangkat',$tanggal)->where('tiket_tersedia', '>=', $penumpang)->get(); //list jadwal default penumpang reguler
         }
-
         // Membuat Harga Dinamis
         $tanggalBerangkat = Carbon::parse($tanggal);
         $tanggalSekarang = Carbon::now();

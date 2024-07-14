@@ -62,11 +62,20 @@
                                             <td>{{$trx->user->no_telp}}</td>
                                             <td>{{$trx->total}}</td>
                                             <td><button type="button" data-toggle="modal" data-target="#{{$trx->id}}"
-                                                    class="p-2 text-white bg-blue-500 rounded-xl">Detail
-                                                    Pesanan</button></td>
-                                            <td>
-                                                <button class="p-2 text-white bg-green-500 rounded-xl">Accept</button>
-                                                <button class="p-2 text-white bg-red-500 rounded-xl">Reject</button>
+                                                    class="p-2 text-white bg-blue-500 rounded-xl">Lihat Bukti Bayar
+                                                </button></td>
+                                            <td class="flex gap-3">
+                                                <form action="/admin/accTransaksi/{{$trx->id}}" method="POST">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="p-2 text-white bg-green-500 rounded-xl">Accept</button>
+                                                </form>
+                                                <form action="/admin/rejectTransaksi/{{$trx->id}}" method="POST">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="p-2 text-white bg-red-500 rounded-xl">Reject</button>
+                                                </form>
+
                                             </td>
                                         </tr>
                                         @endforeach
