@@ -11,6 +11,7 @@ class ListJadwalController extends Controller
 {
     public function index(Request $req) {
         $tanggal = Carbon::parse($req->inputData['tanggal'])->format('Y-m-d');
+        
         $listjadwal;
         $penumpang = $req->inputData['jumlah_penumpang'];
         $layanan = $req->inputData['layanan'];
@@ -19,10 +20,11 @@ class ListJadwalController extends Controller
 
         if ($layanan == 'carter') {
             //list jadwal jika carter
-            $listjadwal = Jadwal::where('tgl_berangkat', $req->inputData['tanggal'])
+            $listjadwal = Jadwal::where('tgl_berangkat', $tanggal)
                                 ->whereHas('speedboat', function($query) {
                                     $query->whereColumn('kapasitas_kursi', 'tiket_tersedia'); // bandingkan kapasitas kursi dengan jumlah tiket tersedia di tabel jadwal
                                 })->get();
+
         }else {
             $listjadwal = Jadwal::where('tgl_berangkat',$tanggal)->where('tiket_tersedia', '>=', $penumpang)->get(); //list jadwal default penumpang reguler
         }
