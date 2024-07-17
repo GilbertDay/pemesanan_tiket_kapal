@@ -47,6 +47,38 @@ class AdminController extends Controller
         return redirect('/admin/jadwal');
     }
 
+    public function updateJadwal(Request $req) {
+
+
+        //Cari jadwal berdasarkan ID
+        $jadwal = Jadwal::find($req->id_jadwal);
+
+        //Upadte atribut jadwal
+        $jadwal->speedboat_id = $req->speedboat;
+        $jadwal->pel_asal = $req->pel_asal;
+        $jadwal->pel_tujuan = $req->pel_tujuan;
+        $jadwal->tgl_berangkat = Carbon::parse($req->tgl_berangkat)->format('Y-m-d');
+        $jadwal->jam_brgkt = $req->jam_brgkt;
+        $jadwal->jam_tiba = $req->jam_tiba;
+        // $jadwal->tiket_tersedia = $req->jam_tiba;
+
+        // ssimpan ke database
+        $jadwal->save();
+
+        return redirect('/admin/jadwal')->with('success', 'Jadwal Update successfully');
+    }
+
+    public function deleteJadwal(Request $req) {
+
+        $jadwal = Jadwal::find($req->id_jadwal);
+
+        // Delete the speedboat
+        $jadwal->delete();
+
+        return redirect('/admin/jadwal')->with('success', 'Jadwal deleted successfully');
+    }
+
+
     public function tambahSpeedboat(Request $req){
         Speedboat::create([
             'nama_speedboat' => $req->nama_speedboat,
@@ -57,14 +89,6 @@ class AdminController extends Controller
         return redirect('/admin/speedboat');
     }
     public function updateSpeedboat(Request $req) {
-
-        // Validate the request data
-        // $validated = $req->validate([
-        //     'id_speedboat' => 'required|exists:speedboats,id',
-        //     'nama_speedboat' => 'required|string|max:255',
-        //     'kapasitas_kursi' => 'required|integer|min:1',
-        //     'harga_speedboat' => 'required|numeric|min:0',
-        // ]);
 
         // Find the speedboat by ID
         $speedboat = Speedboat::find($req->id_speedboat);
@@ -78,7 +102,6 @@ class AdminController extends Controller
         // Save the changes
         $speedboat->save();
 
-        // Redirect to the speedboat list page with a success message
         return redirect('/admin/speedboat')->with('success', 'Speedboat Update successfully');
     }
 
@@ -89,7 +112,6 @@ class AdminController extends Controller
         // Delete the speedboat
         $speedboat->delete();
 
-        // Redirect to the speedboat list page with a success message
         return redirect('/admin/speedboat')->with('success', 'Speedboat deleted successfully');
     }
 

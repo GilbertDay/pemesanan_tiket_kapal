@@ -31,7 +31,6 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     Route::post('/tambahJadwal', [AdminController::class, 'tambahJadwal']);
     //Edit Data Jadwal
     Route::post('/updateJadwal', [AdminController::class, 'updateJadwal']);
-
     //Hapus Data Jadwal
     Route::post('/deleteJadwal', [AdminController::class, 'deleteJadwal']);
     // Tambah Data Speedboat
