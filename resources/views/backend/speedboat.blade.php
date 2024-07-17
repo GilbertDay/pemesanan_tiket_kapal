@@ -106,13 +106,13 @@
 
 
 
-    <!-- Form Tambah Jadwal  -->
+    <!-- Form Tambah Speedboat  -->
     <div class="modal fade" id="tambahSpeedboat" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="tambahSpeedboatLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="tambahSpeedboatLabel">Tambah Jadwal</h5>
+                    <h5 class="modal-title" id="tambahSpeedboatLabel">Tambah Speedboat</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -156,16 +156,16 @@
             </div>
         </div>
     </div>
-    <!-- End Form Tambah Jadwal -->
+    <!-- End Form Tambah Speedboat -->
 
-    <!-- Form Update Jadwal  -->
+    <!-- Form Update Speedboat  -->
     @foreach($speedboat as $spd)
     <div class="modal fade" id="updateSpeedboat{{$spd->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="updateSpeedboatLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateSpeedboatLabel">Update Jadwal</h5>
+                    <h5 class="modal-title" id="updateSpeedboatLabel">Update Speedboat</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -214,16 +214,15 @@
             </div>
         </div>
     </div>
+    <!-- End Form Update Speedboat -->
 
-
-
-    <!-- Modal for deleting the specific speedboat -->
+    <!-- Form Delete Speedboat  -->
     <div class="modal fade" id="deleteSpeedboat{{$spd->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="deleteSpeedboatLabel{{$spd->id }}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteSpeedboatLabel{{$spd->id }}">Delete Jadwal</h5>
+                    <h5 class="modal-title" id="deleteSpeedboatLabel{{$spd->id }}">Delete Speedboat</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -243,6 +242,8 @@
             </div>
         </div>
     </div>
+    <!-- End Form Delete Speedboat -->
+
 
     @endforeach
 

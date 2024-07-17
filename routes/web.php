@@ -30,7 +30,10 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     // Tambah Data Jadwal
     Route::post('/tambahJadwal', [AdminController::class, 'tambahJadwal']);
     //Edit Data Jadwal
+    Route::post('/updateJadwal', [AdminController::class, 'updateJadwal']);
+
     //Hapus Data Jadwal
+    Route::post('/deleteJadwal', [AdminController::class, 'deleteJadwal']);
     // Tambah Data Speedboat
     Route::post('/tambahSpeedboat', [AdminController::class, 'tambahSpeedboat']);
     //Edit Data Speedboat

@@ -13,13 +13,17 @@
 
 
 <script>
-    $(function () {
-        $("#date").datepicker({
-            minDate: 0,
-            dateFormat: "dd-mm-yy",
-            maxDate: "+2W"
+    $(document).ready(function () {
+        $('input[id^="date"]').each(function () {
+            $(this).datepicker({
+                minDate: 0,
+                dateFormat: "dd-mm-yy",
+                maxDate: "+2W"
+            });
         });
     });
+
+
 
     function setTujuan() {
         var asal = document.getElementById('pelabuhan-asal').value;

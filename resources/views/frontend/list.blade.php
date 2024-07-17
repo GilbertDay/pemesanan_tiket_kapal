@@ -3,6 +3,8 @@
 @section('title', 'Daftar Kapal')
 
 @section('content')
+@inject('carbon', 'Carbon\Carbon')
+
 
 <body class="bg-[#151F57] py-5 px-10">
     <nav class="flex justify-between text-2xl">
@@ -19,11 +21,12 @@
             <input name="dataInput[layanan]" type="text" value={{$layanan}} hidden>
             <div class="flex items-center justify-center h-16"> Terdapat <span class="px-1 font-bold">
                     {{$listjadwal->count()}}
-                </span> Jadwal yang masih tersedia pada tanggal <span class="px-1 font-bold"> {{$tanggal}} </span>  
+                </span> Jadwal yang masih tersedia pada hari <span
+                    class="px-1 font-bold">{{$carbon::parse($tanggal)->translatedFormat('l, j F, Y')}}  </span>
             </div>
             <div class="flex flex-col py-10">
                 <div class="flex w-full ml-12 text-center">
-                <div class="w-1/5 ml-3 font-semibold">Nama Speedboat</div>
+                    <div class="w-1/5 ml-3 font-semibold">Nama Speedboat</div>
                     <div class="w-1/5 -ml-12 font-semibold">Jam Berangkat</div>
                     <div class="w-1/5 -ml-10 font-semibold">Jam Tiba</div>
                     <div class="w-1/5 -ml-10 font-semibold">Jumlah Kursi</div>
@@ -34,7 +37,6 @@
 
                 @foreach($soldTiket as $key=>$sold)
                 <div class="mt-5 text-gray-500">
-                    
                     <div class="pl-10">
                         <div class="flex font-semibold text-center">
                             <div id="check" class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]"></div>
@@ -59,7 +61,7 @@
                 <div class="mt-5">
                     <div class="pl-8">
                         <div class="flex items-center font-semibold text-center">
-                        <div>
+                            <div>
                                 <div id="check-true-{{$jadwal->id}}"
                                     class="hidden p-1 bg-green-500 rounded-sm w-fit h-fit">✔
                                 </div>
@@ -67,7 +69,8 @@
                                     class="p-1 bg-gray-400 rounded-sm w-[29px] h-[32px]">
                                 </div>
                             </div>
-                            <div class="w-1/5 font-bold text-[#151F57] mb-3">{{$jadwal->speedboat->nama_speedboat}}</div>
+                            <div class="w-1/5 font-bold text-[#151F57] mb-3">{{$jadwal->speedboat->nama_speedboat}}
+                            </div>
                             <div id="jb-{{$jadwal->id}}" class="w-1/5 ">{{$jadwal->jam_brgkt}}</div>
                             <div id="jt-{{$jadwal->id}}" class="w-1/5">{{$jadwal->jam_tiba}}</div>
                             <div class="w-1/5">30</div>

@@ -70,14 +70,14 @@
                 <div class="text-xs font-semibold text-gray-400">
                     Waktu Keberangkatan
                     <div class="text-lg text-black">
-                        {{$carbon::parse($transaksi->jadwal->tgl_berangkat)->translatedFormat('l, F j, Y')}} |
+                        {{$carbon::parse($transaksi->jadwal->tgl_berangkat)->translatedFormat('l, j F, Y')}} |
                         {{$transaksi->jadwal->jam_brgkt}}</div>
                     <div class="text-lg text-black">{{$transaksi->jadwal->tgl_brgkt}}</div>
                 </div>
                 <div class="text-xs font-semibold text-gray-400">
                     Waktu Tiba
                     <div class="text-lg text-black">
-                        {{$carbon::parse($transaksi->jadwal->tgl_berangkat)->translatedFormat('l, F j, Y')}} |
+                        {{$carbon::parse($transaksi->jadwal->tgl_berangkat)->translatedFormat('l, j F, Y')}} |
                         {{$transaksi->jadwal->jam_tiba}}</div>
                     <div class="text-lg text-black">{{$transaksi->jadwal->tgl_brgkt}}</div>
                 </div>
