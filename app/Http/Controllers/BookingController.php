@@ -35,7 +35,7 @@ class BookingController extends Controller
     }
 
     public function createOrders(Request $req){
-        // dd($req);
+
 
         $id_penumpang = [];
         //Fungsi untuk Menambah Penumpang di Tabel Penumpang
@@ -56,8 +56,10 @@ class BookingController extends Controller
         }
 
         Jadwal::find($req->id_jadwal)->update([
-            'tiket_tersedia' => DB::raw('tiket_tersedia - ' . $req->jumlah_penumpang)
+            'tiket_tersedia' => $req->layanan == 'carter' ? DB::raw(0) : DB::raw('tiket_tersedia - ' . $req->jumlah_penumpang)
         ]);
+
+
 
         Transaksi::create([
             'user_id' => $req->id_user,
