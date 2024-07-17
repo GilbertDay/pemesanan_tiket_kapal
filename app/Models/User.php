@@ -29,8 +29,17 @@ class User extends Authenticatable
         parent::boot();
 
         static::creating(function ($model) {
-            $count = static::count(); // Mengambil jumlah data di database
-            $model->id = 'USER-' . ($count + 1); // Menambahkan 1 ke jumlah data untuk membuat ID baru
+            // Mengambil data terakhir yang diinput berdasarkan kolom id
+            $lastRecord = static::latest('id')->first();
+
+            // Jika ada data, ambil bagian angka dari ID terakhir, tambahkan 1 dan buat ID baru
+            if ($lastRecord) {
+                $lastId = (int) str_replace('USER-', '', $lastRecord->id);
+                $model->id = 'USER-' . ($lastId + 1);
+            } else {
+                // Jika tidak ada data, mulai dari 1
+                $model->id = 'USER-1';
+            }
         });
     }
 }

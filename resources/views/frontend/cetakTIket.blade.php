@@ -60,7 +60,7 @@
         </td>
         <td>
             <div style="text-align: center; margin-bottom: 3px;">
-                {{$carbon::parse($data->jadwal->tgl_berangkat)->translatedFormat('l, F j, Y')}}
+                {{$carbon::parse($data->jadwal->tgl_berangkat)->translatedFormat('l, j F, Y')}}
             </div>
             <div style="text-align: center; margin-bottom: 20px;">{{$data->jadwal->jam_brgkt}} -
                 {{$data->jadwal->jam_tiba}}</div>
