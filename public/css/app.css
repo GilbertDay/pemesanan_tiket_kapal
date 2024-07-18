@@ -160,6 +160,7 @@ table {
   text-indent: 0; /* 1 */
   border-color: inherit; /* 2 */
   border-collapse: collapse; /* 3 */
+
 }
 
 /*
@@ -336,7 +337,7 @@ textarea {
 
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
+  color: #000000; /* 2 */
 }
 
 input::placeholder,

@@ -13,6 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     public $incrementing = false;
     protected $fillable = [
+        'nik',
         'name',
         'email',
         'no_telp',

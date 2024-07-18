@@ -47,7 +47,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Photo</th>
+                                            <th>Logo</th>
                                             <th>Nama Bank</th>
                                             <th>Nomor Rekening</th>
                                             <th>Nama Rekening</th>

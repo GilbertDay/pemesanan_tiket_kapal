@@ -68,12 +68,12 @@
                                                 <form action="/admin/accTransaksi/{{$trx->id}}" method="POST">
                                                     @csrf
                                                     <button type="submit"
-                                                        class="p-2 text-white bg-green-500 rounded-xl">Accept</button>
+                                                        class="p-2 text-white bg-green-500 rounded-xl">Terima</button>
                                                 </form>
                                                 <form action="/admin/rejectTransaksi/{{$trx->id}}" method="POST">
                                                     @csrf
                                                     <button type="submit"
-                                                        class="p-2 text-white bg-red-500 rounded-xl">Reject</button>
+                                                        class="p-2 text-white bg-red-500 rounded-xl">Tolak</button>
                                                 </form>
 
                                             </td>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
                     <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
@@ -179,7 +179,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal">Keluar</button>
 
                 </div>
             </div>

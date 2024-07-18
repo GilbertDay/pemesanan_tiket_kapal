@@ -25,6 +25,11 @@
             <div class="">
                 <input
                     class="w-[500px] px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-nik" type="number" placeholder="Masukan NIK">
+            </div>
+            <div class="mt-3">
+                <input
+                    class="w-[500px] px-4 py-2 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name" type="text" placeholder="Masukan Nama">
             </div>
             <div class="mt-3">

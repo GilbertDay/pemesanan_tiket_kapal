@@ -13,7 +13,19 @@
 
     <!-- Custom styles for this page -->
     <link href="admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+     <!-- jQuery -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 </head>
+        <script>
+            $(document).ready(function() {
+                $('#dataTable').DataTable();
+            });
+        </script>
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -33,7 +45,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-gray-800 ">Data Penumpang</h1>
+                    <h1 class="mb-6 text-lg text-dark-800 ">Data Penumpang</h1>
 
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
@@ -83,7 +95,7 @@
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="my-auto text-center copyright">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Website 2024</span>
                     </div>
                 </div>
             </footer>

@@ -73,7 +73,7 @@
                                                 <!-- Trigger the modal with a button -->
                                                 <button type="button" data-toggle="modal"
                                                     data-target="#deleteSpeedboat{{ $s->id }}"
-                                                    class="p-2 text-black bg-red-500 rounded-lg">Delete</button>
+                                                    class="p-2 text-black bg-red-500 rounded-lg">Hapus</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -222,21 +222,21 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteSpeedboatLabel{{$spd->id }}">Delete Speedboat</h5>
+                    <h5 class="modal-title" id="deleteSpeedboatLabel{{$spd->id }}">Hapus Data Speedboat</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete {{$spd->nama_speedboat }}?</p>
+                    <p>Apakah Anda yakin ingin menghapus {{$spd->nama_speedboat }}?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
-                        data-dismiss="modal">Cancel</button>
+                        data-dismiss="modal">Batal</button>
                     <form action="/admin/deleteSpeedboat" method="POST">
                         @csrf
                         <input type="hidden" name="id_speedboat" value="{{$spd->id }}">
-                        <button type="submit" class="px-2 py-2 text-white bg-red-500 rounded-lg">Delete</button>
+                        <button type="submit" class="px-2 py-2 text-white bg-red-500 rounded-lg">Hapus</button>
                     </form>
                 </div>
             </div>
