@@ -22,13 +22,12 @@ class AuthentikasiController extends Controller
 
             switch ($user->role) {
                 case 'admin':
-                    return redirect()->intended('/admin/dashboard'); // Jika pengguna adalah admin, arahkan ke halaman admin
+                    return redirect()->intended('/admin/dashboard');
                     break;
                 case 'user':
-                    return redirect()->intended('/'); // Jika pengguna adalah kader, arahkan ke halaman kader
-                    break;
+                    return redirect()->intended('/');
                 default:
-                    return redirect()->intended('/'); // Jika status tidak sesuai dengan yang diharapkan, kembali ke halaman login
+                    return redirect()->intended('/');
             }
         }
         // Jika autentikasi gagal, kembali ke halaman login dengan pesan error
@@ -49,9 +48,26 @@ class AuthentikasiController extends Controller
             'role' => 'user',
         ]);
 
+        $credentials = $req->only('email', 'password');
 
-        return redirect('/login')->with('success', 'Berhasil Registrasi, Silahkan Login');
+        if (Auth::attempt($credentials)) {
+            // Autentikasi berhasil, redirect ke halaman dashboard atau home
+            $user = Auth::user();
 
+            switch ($user->role) {
+                case 'admin':
+                    return redirect()->intended('/admin/dashboard');
+                case 'user':
+                    return redirect()->intended('/');
+                default:
+                    return redirect()->intended('/');
+            }
+        }
+
+        // Jika login otomatis gagal, kembali dengan pesan error
+        return redirect('/')->withErrors([
+            'email' => 'Gagal login setelah registrasi.',
+        ]);
 
     }
 
