@@ -40,6 +40,21 @@
 
 
     $(document).ready(function () {
+        var semuaTabel = $('.table').DataTable({
+            "language": {
+                "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ Data",
+                "infoEmpty": "Menampilkan 0 sampai 0 dari 0 Data",
+                "lengthMenu": "Tampilkan _MENU_ Data",
+                "search": "Pencarian:",
+                "zeroRecords": "Tidak ditemukan data yang sesuai",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Berikutnya",
+                    "previous": "Sebelumnya"
+                },
+            }
+        })
         var tabelPenumpang = $('#tabelPenumpang').DataTable();
         var tabelSpeedboat = $('#tabelSpeedboat').DataTable();
         var tabelJadwal = $('#tabelJadwal').DataTable();
