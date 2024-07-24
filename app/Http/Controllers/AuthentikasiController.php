@@ -6,6 +6,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class AuthentikasiController extends Controller
@@ -36,10 +37,22 @@ class AuthentikasiController extends Controller
         ]);
     }
 
-    public function tambahUser(Request $request)
+    public function tambahUser(Request $req)
     {
 
-        return view('register');
+        User::create([
+            'id' => $req->nik,
+            'name' => $req->nama,
+            'email' => $req->email,
+            'no_telp' => $req->nik,
+            'password' => Hash::make($req->password),
+            'role' => 'user',
+        ]);
+
+
+        return redirect('/login')->with('success', 'Berhasil Registrasi, Silahkan Login');
+
+
     }
 
     public function logout()

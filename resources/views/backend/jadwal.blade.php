@@ -20,7 +20,6 @@
     <div id="wrapper">
         <!-- Sidebar -->
         @include('layouts.admin.sidebar')
-        @inject('carbon', 'Carbon\Carbon')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
