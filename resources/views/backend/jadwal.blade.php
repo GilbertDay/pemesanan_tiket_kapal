@@ -47,7 +47,7 @@
                         </div>
                         <div class="card-body-table">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tabelJadwal" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nama Speedboat</th>

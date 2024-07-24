@@ -50,7 +50,7 @@
                         </div>
                         <div class="card-body-table">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tabelSpeedboat" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nama</th>

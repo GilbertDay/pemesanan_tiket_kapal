@@ -38,4 +38,44 @@
         }
     }
 
+
+    $(document).ready(function () {
+        var tabelPenumpang = $('#tabelPenumpang').DataTable();
+        var tabelSpeedboat = $('#tabelSpeedboat').DataTable();
+        var tabelJadwal = $('#tabelJadwal').DataTable();
+        var tabelTransaksiTerima = $('#tabelTransaksiTerima').DataTable();
+        var tabelTransaksiPending = $('#tabelTransaksiPending').DataTable();
+        var tabelPembayaran = $('#tabelPembayaran').DataTable();
+
+        $('.dataTables_filter input').on('keyup change', function () {
+            tabelPenumpang
+                .column(1) // kolom nama
+                .search(this.value)
+                .draw();
+        });
+
+        $('.dataTables_filter input').on('keyup change', function () {
+            tabelSpeedboat
+                .column(0) //Kolom nama speedboat
+                .search(this.value)
+                .draw();
+        });
+
+        $('.dataTables_filter input').on('keyup change', function () {
+            tabelJadwal
+                .column(0) //Kolom nama speedboat
+                .search(this.value)
+                .draw();
+        });
+
+        $('.dataTables_filter input').on('keyup change', function () {
+            tabelPembayaran
+                .column(1) //Kolom nama bank
+                .search(this.value)
+                .draw();
+        });
+
+
+    });
+
 </script>

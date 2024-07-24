@@ -3,29 +3,8 @@
 
 <head>
     @include('layouts.admin.meta')
-    <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="admin/css/sb-admin-2.min.css" rel="stylesheet" />
-
-    <!-- Custom styles for this page -->
-    <link href="admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
-
-     <!-- jQuery -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     
-    <!-- DataTables -->
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 </head>
-        <script>
-            $(document).ready(function() {
-                $('#dataTable').DataTable();
-            });
-        </script>
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -46,13 +25,12 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="mb-6 text-lg text-dark-800 ">Data Penumpang</h1>
-
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
 
                         <div class="card-body-table">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tabelPenumpang" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>NIK</th>
@@ -78,9 +56,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="flex justify-end px-3">
-                            {{ $penumpang->links() }}
-                        </div>
+
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -214,6 +190,9 @@
         </div>
     </div>
     <!-- End Form Tambah Penumpang -->
+
+    @include('layouts.admin.script')
+
 
 </body>
 

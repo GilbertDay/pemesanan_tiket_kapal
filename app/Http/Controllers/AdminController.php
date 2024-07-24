@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function penumpang()
     {
-        $penumpang = Penumpang::paginate(10);
+        $penumpang = Penumpang::all();
         return view('backend.penumpang', compact('penumpang'));
     }
     public function jadwal()

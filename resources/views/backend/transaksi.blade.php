@@ -41,7 +41,8 @@
                             <div class="px-3 py-1 mb-3 font-semibold text-center text-white bg-yellow-500">Transaksi
                                 Pending</div>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tabelTransaksiPending" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nama Pemesan</th>
@@ -89,13 +90,14 @@
                             <div class="px-3 py-1 mb-3 font-semibold text-center text-white bg-green-500">Transaksi
                                 Sukses</div>
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="tabelTransaksiTerima" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nama Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
-                                            <th>No Telepon</th>
+                                            <th>No Telepong</th>
                                             <th>Jumlah Pembayaran</th>
                                         </tr>
                                     </thead>
@@ -187,6 +189,8 @@
     </div>
     @endforeach
     <!-- End Form Tambah Jadwal -->
+    @include('layouts.admin.script')
+
 </body>
 
 </html>
