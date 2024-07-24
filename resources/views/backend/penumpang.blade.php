@@ -24,15 +24,15 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-dark-800 ">Data Penumpang</h1>
+                    <h1 class="mb-6 text-lg font-semibold text-black ">Data Penumpang</h1>
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
 
-                        <div class="card-body-table">
+                        <div class="text-black card-body-table">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelPenumpang" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-black">
                                             <th>NIK</th>
                                             <th>Nama</th>
                                             <th>Alamat</th>
@@ -43,7 +43,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($penumpang as $p)
-                                        <tr>
+                                        <tr class="text-black">
                                             <td>{{$p->id}}</td>
                                             <td>{{$p->nama}}</td>
                                             <td>{{$p->alamat}}</td>

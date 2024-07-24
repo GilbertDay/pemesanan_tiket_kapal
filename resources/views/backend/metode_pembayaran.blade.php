@@ -33,7 +33,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-gray-800 ">Data Metode Pembayaran</h1>
+                    <h1 class="mb-6 text-lg font-semibold text-black ">Data Metode Pembayaran</h1>
 
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
@@ -42,11 +42,11 @@
                                 class="rounded-full border-2 px-3 py-2 border-slate-500 bg-[#151F57] hover:text-white hover:no-underline text-stone-100 text-center">Tambah
                                 Metode Pembayaran</button>
                         </div>
-                        <div class="card-body-table">
+                        <div class="text-black card-body-table">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelPembayaran" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-black">
                                             <th>Logo</th>
                                             <th>Nama Bank</th>
                                             <th>Nomor Rekening</th>
@@ -58,7 +58,7 @@
                                     <tbody>
                                         @foreach($metodePembayaran as $mp)
 
-                                        <tr>
+                                        <tr class="text-black">
                                             <td>
                                                 <img src="{{asset($mp->img)}}" alt=""
                                                     class="block ml-auto mr-auto max-w-12">

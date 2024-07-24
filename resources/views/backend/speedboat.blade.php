@@ -34,7 +34,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-gray-800 ">Data Speedboat</h1>
+                    <h1 class="mb-6 text-lg font-semibold text-black ">Data Speedboat</h1>
                     @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -48,11 +48,11 @@
                                 class="rounded-full border-2 px-3 py-2 border-slate-500 bg-[#151F57] hover:text-white hover:no-underline text-stone-100 text-center">Tambah
                                 Speedboat</button>
                         </div>
-                        <div class="card-body-table">
+                        <div class="text-black card-body-table ">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelSpeedboat" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-black">
                                             <th>Nama</th>
                                             <th>Kapasitas Kursi</th>
                                             <th>Harga</th>
@@ -61,7 +61,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($speedboat as $s)
-                                        <tr>
+                                        <tr class="text-black">
                                             <td>{{$s->nama_speedboat}}</td>
                                             <td>{{$s->kapasitas_kursi}}</td>
                                             <td>{{$s->harga_normal}}</td>
@@ -80,9 +80,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                        <div class="flex justify-end px-3">
-                            {{ $speedboat->links() }}
                         </div>
                     </div>
                 </div>

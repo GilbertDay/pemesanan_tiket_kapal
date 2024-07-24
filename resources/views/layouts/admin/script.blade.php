@@ -40,6 +40,7 @@
 
 
     $(document).ready(function () {
+
         var semuaTabel = $('.table').DataTable({
             "language": {
                 "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ Data",

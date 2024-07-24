@@ -33,18 +33,18 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-gray-800 ">Data Transaksi</h1>
+                    <h1 class="mb-6 text-lg font-semibold text-black ">Data Transaksi</h1>
 
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
-                        <div class="card-body-table">
+                        <div class="text-black card-body-table">
                             <div class="px-3 py-1 mb-3 font-semibold text-center text-white bg-yellow-500">Transaksi
                                 Pending</div>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelTransaksiPending" width="100%"
                                     cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-black">
                                             <th>Nama Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
@@ -56,7 +56,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($transaksi_pending as $trx)
-                                        <tr>
+                                        <tr class="text-black">
                                             <td>{{$trx->user->name}}</td>
                                             <td>{{$trx->jenis_layanan}}</td>
                                             <td>{{$trx->jumlah_kursi}}</td>
@@ -85,15 +85,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-4 shadow card">
-                        <div class="card-body-table">
+                    <div class="mb-4 shadow card ">
+                        <div class="text-black card-body-table">
                             <div class="px-3 py-1 mb-3 font-semibold text-center text-white bg-green-500">Transaksi
                                 Sukses</div>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelTransaksiTerima" width="100%"
                                     cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-black">
                                             <th>Nama Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
@@ -103,7 +103,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($transaksi_sukses as $trx)
-                                        <tr>
+                                        <tr class="text-black">
                                             <td>{{$trx->user->name}}</td>
 
                                             <td>{{$trx->jenis_layanan}}</td>

@@ -150,7 +150,7 @@ class AdminController extends Controller
 
     public function speedboat()
     {
-        $speedboat = Speedboat::orderBy('id', 'desc')->paginate(5);
+        $speedboat = Speedboat::orderBy('id', 'desc')->get();
         return view('backend.speedboat', compact('speedboat'));
     }
 

@@ -35,7 +35,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <h1 class="mb-6 text-lg text-gray-800 ">Data Jadwal</h1>
+                    <h1 class="mb-6 text-lg font-semibold text-black ">Data Jadwal</h1>
 
                     <!-- DataTales Example -->
                     <div class="mb-4 shadow card">
@@ -44,11 +44,11 @@
                                 class="rounded-full border-2 px-3 py-2 border-slate-500 bg-[#151F57] hover:text-white hover:no-underline text-stone-100 text-center">Tambah
                                 Jadwal</button>
                         </div>
-                        <div class="card-body-table">
+                        <div class="text-black card-body-table ">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelJadwal" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-black">
                                             <th>Nama Speedboat</th>
                                             <th>Pelabuhan Asal</th>
                                             <th>Pelabuhan Tujuan</th>
@@ -59,14 +59,14 @@
                                     </thead>
                                     <tbody>
                                         @foreach($jadwal as $j)
-                                        <tr>
+                                        <tr class="text-black ">
                                             <td>{{$j->speedboat->nama_speedboat}}</td>
                                             <td>{{$j->pel_asal}}</td>
                                             <td>{{$j->pel_tujuan}}</td>
                                             <td>{{$carbon::parse($j->tgl_berangkat)->format('d-m-Y')}}</td>
                                             <td>{{$j->jam_brgkt}} - {{$j->jam_tiba}} </td>
                                             <td>
-                                                <button type="button" data-toggle="modal"
+                                                <button type=" button" data-toggle="modal"
                                                     data-target="#updateJadwal{{$j->id}}"
                                                     class="p-2 text-black bg-blue-400 rounded-lg">Edit</button>
                                                 <!-- Trigger the modal with a button -->
@@ -79,9 +79,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                        <div class="flex justify-end px-3">
-                            {{ $jadwal->links() }}
                         </div>
                     </div>
                 </div>
