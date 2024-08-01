@@ -11,13 +11,6 @@
         <a href="/" class="font-bold text-black no-underline">
             DisHub Hal-Bar
         </a>
-        <div class="flex gap-10 font-light tracking-wide ">
-            <a href="/" class="text-black no-underline ">Jadwal</a>
-            <a href="/" class="text-black no-underline">Tentang</a>
-            @if(Auth::check())
-            <a href="/riwayatPesanan" class="text-black no-underline">Riwayat Pemesanan</a>
-            @endif
-        </div>
 
 
 
@@ -30,6 +23,9 @@
                     {{ Auth::user()->name }}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end">
+                    <li class="flex px-4 text-nowrap"><a href="/riwayatPesanan" class="text-black no-underline">Riwayat
+                            Pemesanan</a></li>
+                    <hr>
                     <li>
                         <form action="/logout" method="POST" class="inline">
                             @csrf

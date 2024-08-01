@@ -44,8 +44,10 @@ class Transaksi extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            // Mengambil data terakhir yang diinput berdasarkan kolom id
-            $lastRecord = static::latest('id')->first();
+            // Mengambil semua record dan mengurutkan berdasarkan bagian numerik dari id
+            $lastRecord = static::all()->sortByDesc(function($item) {
+                return (int) str_replace('TRX-', '', $item->id);
+            })->first();
 
             // Jika ada data, ambil bagian angka dari ID terakhir, tambahkan 1 dan buat ID baru
             if ($lastRecord) {

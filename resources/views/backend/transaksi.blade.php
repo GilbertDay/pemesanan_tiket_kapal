@@ -97,7 +97,7 @@
                                             <th>Nama Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
-                                            <th>No Telepong</th>
+                                            <th>No Telepon</th>
                                             <th>Jumlah Pembayaran</th>
                                         </tr>
                                     </thead>

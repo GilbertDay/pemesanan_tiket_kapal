@@ -60,7 +60,6 @@ class BookingController extends Controller
         ]);
 
 
-
         Transaksi::create([
             'user_id' => $req->id_user,
             'penumpang_id' => implode(',', $id_penumpang),

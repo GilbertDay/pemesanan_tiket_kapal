@@ -43,7 +43,7 @@ class AuthentikasiController extends Controller
             'id' => $req->nik,
             'name' => $req->nama,
             'email' => $req->email,
-            'no_telp' => $req->nik,
+            'no_telp' => $req->no_telp,
             'password' => Hash::make($req->password),
             'role' => 'user',
         ]);
