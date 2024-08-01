@@ -6,6 +6,8 @@ use App\Models\Jadwal;
 use App\Models\Speedboat;
 use App\Models\Transaksi;
 use App\Models\MetodePembayaran;
+use App\Charts\InfoTransaksiHarianChart;
+use App\Charts\InfoRuteSpeedboatChart;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -13,13 +15,15 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
-    public function dahsboard()
+    public function dahsboard( InfoTransaksiHarianChart $transaksi_harian, InfoRuteSpeedboatChart $rute_speedboat)
     {
+        $chart_transaksi = $transaksi_harian->build();
+        $chart_rute_by_speedboat = $rute_speedboat->build();
         $data_penumpang = Penumpang::count();
         $data_speedboat = Speedboat::count();
         $data_jadwal = Jadwal::count();
         $data_transaksi = Transaksi::count();
-        return view('backend.index',compact('data_penumpang','data_speedboat','data_jadwal','data_transaksi') );
+        return view('backend.index',compact('data_penumpang','data_speedboat','data_jadwal','data_transaksi','chart_transaksi','chart_rute_by_speedboat') );
     }
 
     public function penumpang()

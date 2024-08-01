@@ -32,67 +32,67 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    <div class="mb-4 d-sm-flex align-items-center justify-content-between">
+                        <h1 class="mb-0 text-gray-800 h3">Dashboard</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-12 mb-4 h-auto">
+                        <div class="h-auto mb-4 col-lg-12">
 
                             <!-- Color System -->
                             <div class="row">
 
-                                <div class="col-xl-6 mb-4">
+                                <div class="mb-4 col-xl-3">
                                     <div class="bg-[#F9A119] shadow text-white ">
-                                        <div class="card-body flex flex-col">
+                                        <div class="flex flex-col card-body">
                                             <div>Penumpang</div>
                                             <div class="flex justify-center items-center h-full text-[40px] font-bold">
                                                 {{$data_penumpang}}
                                             </div>
                                             <a href="/admin/penumpang"
-                                                class="text-end text-white text-xs hover:no-underline">Selengkapnya</a>
+                                                class="text-xs text-white text-end hover:no-underline">Selengkapnya</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-xl-6 mb-4">
+                                <div class="mb-4 col-xl-3">
                                     <div class="bg-[#8C52FF] shadow text-white ">
-                                        <div class="card-body flex flex-col">
+                                        <div class="flex flex-col card-body">
                                             <div>Speedboat</div>
                                             <div class="flex justify-center items-center h-full text-[40px] font-bold">
                                                 {{$data_speedboat}}
                                             </div>
                                             <a href="/admin/speedboat"
-                                                class="text-end text-white text-xs hover:no-underline">Selengkapnya</a>
+                                                class="text-xs text-white text-end hover:no-underline">Selengkapnya</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-xl-6 mb-4">
+                                <div class="mb-4 col-xl-3">
                                     <div class="bg-[#7ED957] shadow text-white ">
-                                        <div class="card-body flex flex-col">
+                                        <div class="flex flex-col card-body">
                                             <div>Jadwal</div>
                                             <div class="flex justify-center items-center h-full text-[40px] font-bold">
                                                 {{$data_jadwal}}
                                             </div>
                                             <a href="/admin/jadwal"
-                                                class="text-end text-white text-xs hover:no-underline">Selengkapnya</a>
+                                                class="text-xs text-white text-end hover:no-underline">Selengkapnya</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-xl-6 mb-4">
+                                <div class="mb-4 col-xl-3">
                                     <div class="bg-[#FF3131] text-white shadow">
-                                        <div class="card-body flex flex-col">
+                                        <div class="flex flex-col card-body">
                                             <div>Transaksi</div>
                                             <div class="flex justify-center items-center h-full text-[40px] font-bold">
                                                 {{$data_transaksi}}
                                             </div>
                                             <a href="/admin/transaksi"
-                                                class="text-end text-white text-xs hover:no-underline">Selengkapnya</a>
+                                                class="text-xs text-white text-end hover:no-underline">Selengkapnya</a>
                                         </div>
                                     </div>
                                 </div>
@@ -101,6 +101,30 @@
                         </div>
 
                     </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <div>
+                            <div class="text-center">Transaksi Harian</div>
+                            <div>
+                                <div class="p-4 my-3 bg-white rounded shadow ">
+                                    {!! $chart_transaksi->container() !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-2">
+                            <div class="text-center">Rute Kapal</div>
+                            <div>
+                                <div class="p-4 my-3 bg-white rounded shadow ">
+                                    {!! $chart_rute_by_speedboat->container() !!}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -119,7 +143,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <a class="rounded scroll-to-top" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
@@ -145,6 +169,12 @@
 
     <!-- Bootstrap core JavaScript-->
     @include('layouts.admin.script')
+    <script src="{{ $chart_transaksi->cdn() }}"></script>
+    {{ $chart_transaksi->script() }}
+    <script src="{{ $chart_rute_by_speedboat->cdn() }}"></script>
+    {{ $chart_rute_by_speedboat->script() }}
+
+
 
 </body>
 

@@ -546,6 +546,12 @@ video {
 .-z-10 {
   z-index: -10;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.m-20 {
+  margin: 5rem;
+}
 .mx-28 {
   margin-left: 7rem;
   margin-right: 7rem;
@@ -569,6 +575,10 @@ video {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .-ml-10 {
   margin-left: -2.5rem;
@@ -747,6 +757,9 @@ video {
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -951,6 +964,9 @@ video {
 }
 .p-5 {
   padding: 1.25rem;
+}
+.p-6 {
+  padding: 1.5rem;
 }
 .px-1 {
   padding-left: 0.25rem;
