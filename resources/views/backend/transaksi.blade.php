@@ -45,6 +45,8 @@
                                     cellspacing="0">
                                     <thead>
                                         <tr class="text-black">
+                                            <th>Kode Transaksi</th>
+                                            <th>Tanggal</th>
                                             <th>Nama Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
@@ -57,11 +59,13 @@
                                     <tbody>
                                         @foreach($transaksi_pending as $trx)
                                         <tr class="text-black">
+                                            <td>{{$trx->id}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($trx->created_at)->format('d-m-Y') }}</td>
                                             <td>{{$trx->user->name}}</td>
                                             <td>{{$trx->jenis_layanan}}</td>
                                             <td>{{$trx->jumlah_kursi}}</td>
                                             <td>{{$trx->user->no_telp}}</td>
-                                            <td>{{$trx->total}}</td>
+                                            <td>{{ number_format($trx->total, 0, ',', '.') }}.000</td>
                                             <td><button type="button" data-toggle="modal" data-target="#{{$trx->id}}"
                                                     class="p-2 text-white bg-blue-500 rounded-xl">Lihat Bukti Bayar
                                                 </button></td>
@@ -94,6 +98,8 @@
                                     cellspacing="0">
                                     <thead>
                                         <tr class="text-black">
+                                            <th>Kode Transaksi</th>
+                                            <th>Tanggal</th>
                                             <th>Nama Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
@@ -102,15 +108,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @php
+                                        use Carbon\Carbon;
+                                    @endphp
                                         @foreach($transaksi_sukses as $trx)
                                         <tr class="text-black">
+                                            <td>{{$trx->id}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($trx->created_at)->format('d-m-Y') }}</td>
                                             <td>{{$trx->user->name}}</td>
-
                                             <td>{{$trx->jenis_layanan}}</td>
                                             <td>{{$trx->jumlah_kursi}}</td>
                                             <td>{{$trx->user->no_telp}}</td>
+                                            <td>{{ number_format($trx->total, 0, ',', '.') }}.000</td>
 
-                                            <td>{{$trx->total}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

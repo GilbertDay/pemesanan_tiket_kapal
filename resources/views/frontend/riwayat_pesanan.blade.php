@@ -29,7 +29,11 @@
                     <div class="mt-3">
                         <div>Waktu Keberangkatan : {{$order->jadwal->jam_brgkt}} - {{$order->jadwal->jam_tiba}}
                         </div>
-                        <div class="mt-2">Tiket Reguler</div>
+                        @if($order->jenis_layanan == 'Reguler')
+                            <div class="mt-2">Tiket Reguler</div>
+                        @elseif ($order->jenis_layanan == 'Carter')
+                            <div class="mt-2">Tiket Carter</div>
+                        @endif
                     </div>
                 </div>
                 <form action='/detailPesanan/{{$order->id}}' method="POST">

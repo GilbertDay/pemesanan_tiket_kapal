@@ -77,7 +77,7 @@
                         <div class="flex justify-between mt-2">
                             <div class="text-sm font-semibold text-gray-600">Total Harga</div>
                             <div class="font-semibold">Rp.
-                                {{($layanan == 'pesanan_pribadi' ? $jumlah_penumpang * $jadwal->speedboat->harga : $jadwal->speedboat->kapasitas_kursi * $jadwal->speedboat->harga - 50 ) + 5}}.000
+                            {{ number_format(($layanan == 'pesanan_pribadi' ? $jumlah_penumpang * $jadwal->speedboat->harga : $jadwal->speedboat->kapasitas_kursi * $jadwal->speedboat->harga - 50) + 5, 0, ',', '.') }}.000
                             </div>
                         </div>
                         <div>

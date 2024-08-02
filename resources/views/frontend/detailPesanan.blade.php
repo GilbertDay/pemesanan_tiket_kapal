@@ -29,12 +29,11 @@
                     <div class="font-bold">{{$transaksi->user->no_telp}}</div>
                     <div class="font-bold">{{$transaksi->user->email}}</div>
                     <div class="flex gap-3">
-                        <div class="flex items-center w-10">
+                        <div class="flex items-center">
                             <img src="{{asset($transaksi->metodePembayaran->img)}}" alt="">
                         </div>
                         <div class="flex flex-col">
-                            <div>{{$transaksi->metodePembayaran->nama_rekening}}</div>
-                            <div class="font-semibold">{{$transaksi->metodePembayaran->no_rek}}</div>
+                            <div class="font-semibold">{{$transaksi->metodePembayaran->nama_rekening}} | {{$transaksi->metodePembayaran->no_rek}}</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -92,7 +91,11 @@
         <div class="grid grid-cols-{{count($dataPenumpang)}} gap-3">
             @foreach($dataPenumpang as $key=>$penumpang)
             <div class="grid w-full gap-2 p-4 bg-white rounded-lg">
+            @if($penumpang->nama_instansi != '')
+                <div class="mb-4 font-bold tracking-wider text-gray-400">Data Pemesan</div>
+            @else
                 <div class="mb-4 font-bold tracking-wider text-gray-400">Data Penumpang {{$key + 1}}</div>
+            @endif
                 <div class="text-xs font-semibold text-gray-400">
                     NIK
                     <div class="text-lg text-black">{{$penumpang->id}}</div>
