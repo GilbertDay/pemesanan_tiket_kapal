@@ -133,6 +133,38 @@ class AdminController extends Controller
         return redirect('/admin/metodePembayaran');
     }
 
+    public function editMetodePembayaran(Request $req) {
+        
+        // Find the metodePembayaran by ID
+        $pembayaran = MetodePembayaran::find($req->id_metodePembayaran);
+
+        // Update the metodePembayaran attributes
+        $pembayaran->nama_bank = $req->nama_bank;
+        $pembayaran->no_rek = $req->nomor_rekening;
+        $pembayaran->nama_rekening = $req->nama_rekening;
+        if($req->file('logo_bank')){
+            $fileName = time().$req->file('logo_bank')->getClientOriginalName();
+            $path = $req->file('logo_bank')->storeAs('logo_bank', $fileName, 'public');
+            $pembayaran->img = '/storage/'.$path ;
+        }
+
+        // Save the changes
+        $pembayaran->save();
+
+        return redirect('/admin/metodePembayaran')->with('success', 'Metode Pembayaran Berhasil Update');
+    }
+
+    public function deleteMetodePembayaran(Request $req) {
+
+        $pembayaran = MetodePembayaran::find($req->id_metodePembayaran);
+
+        // Delete the metodePembayaran
+        $pembayaran->delete();
+
+        return redirect('/admin/metodePembayaran')->with('success', 'Speedboat deleted successfully');
+    }
+    
+
     public function transaksi()
     {
         $transaksi_all = Transaksi::all();

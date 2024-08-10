@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use DateTime;
 use IntlDateFormatter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BookingController extends Controller
 {
@@ -35,7 +36,6 @@ class BookingController extends Controller
     }
 
     public function createOrders(Request $req){
-
 
         $id_penumpang = [];
         //Fungsi untuk Menambah Penumpang di Tabel Penumpang

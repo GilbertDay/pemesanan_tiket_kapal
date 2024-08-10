@@ -19,11 +19,11 @@
     <div class="mt-10">
         <div class="text-2xl font-bold text-center text-white">Masuk</div>
 
-        @if(session('success'))
+        @if(session('error'))
         <div class="px-3 py-2 mx-56 my-4 text-center text-white bg-green-600">
             <span class="cursor-pointer hover:bg-black"
                 onclick="this.parentElement.style.display='none';">&times;</span>
-            {{ session('success') }}
+            {{ session('error') }}
         </div>
         @endif
 

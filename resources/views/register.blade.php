@@ -20,6 +20,16 @@
         <div class="text-4xl font-bold text-center text-white">Daftar Akun Baru</div>
         <div class="font-bold text-center text-white ">Sudah memiliki akun? <a class="text-[#F9A119] no-underline"
                 href="/login">MASUK</a></div>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form class="flex flex-col items-center mt-8" action="/tambah-user" method="POST">
             @csrf
             <div class="">

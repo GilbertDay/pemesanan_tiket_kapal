@@ -39,7 +39,7 @@ class ListJadwalController extends Controller
         ->join('speedboats', 'jadwals.speedboat_id', '=', 'speedboats.id')
         ->select('speedboats.nama_speedboat')
         ->groupBy('speedboats.nama_speedboat')
-        ->havingRaw('COUNT(*) >= 5') // Minimal 10 kali pesanan baru bisa masuk demand tertinggi
+        ->havingRaw('COUNT(*) >= 10') // Minimal 10 kali pesanan baru bisa masuk demand tertinggi
         ->orderByRaw('COUNT(*) DESC')
         ->get();
 

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
     {
         // USER-1(id)
         User::create([
+            'id' => '5304123423121234',
             'name'	=> 'Mayu',
             'email'	=> 'srimayufara@gmail.com',
             'no_telp' => '085217331557',
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
         ]);
         //USER-2 (id)
         User::create([
+            'id' => '5304123423121789',
             'name'	=> 'Admin',
             'email'	=> 'admin@gmail.com',
             'no_telp' => '085217331558',
@@ -38,117 +40,117 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
-        // SPD-1 (id)
-        Speedboat::create([
-            'nama_speedboat' => 'Sakina Putri',
-            'kapasitas_kursi' => '30',
-            'harga'	=> '75.000',
-        ]);
+        // // SPD-1 (id)
+        // Speedboat::create([
+        //     'nama_speedboat' => 'Sakina Putri',
+        //     'kapasitas_kursi' => '30',
+        //     'harga'	=> '75.000',
+        // ]);
 
-        // SPD-2 (id)
-        Speedboat::create([
-            'nama_speedboat' => 'Palamae Express',
-            'kapasitas_kursi' => '30',
-            'harga'	=> '50.000',
-        ]);
+        // // SPD-2 (id)
+        // Speedboat::create([
+        //     'nama_speedboat' => 'Palamae Express',
+        //     'kapasitas_kursi' => '30',
+        //     'harga'	=> '50.000',
+        // ]);
 
 
-        // Jadwal
+        // // Jadwal
 
-        // JDWL-1 (id)
-        Jadwal::create([
-            'speedboat_id' => 'SPD-1',
-            'pel_asal' => 'Jailolo',
-            'pel_tujuan'	=> 'Ternate',
-            'tgl_berangkat'	=> '2024-05-31',
-            'jam_brgkt'	=> '08:00:00',
-            'jam_tiba'	=> '09:00:00',
-        ]);
+        // // JDWL-1 (id)
+        // Jadwal::create([
+        //     'speedboat_id' => 'SPD-1',
+        //     'pel_asal' => 'Jailolo',
+        //     'pel_tujuan'	=> 'Ternate',
+        //     'tgl_berangkat'	=> '2024-05-31',
+        //     'jam_brgkt'	=> '08:00:00',
+        //     'jam_tiba'	=> '09:00:00',
+        // ]);
 
-        // JDWL-2 (id)
-        Jadwal::create([
-            'speedboat_id' => 'SPD-2',
-            'pel_asal' => 'Jailolo',
-            'pel_tujuan'	=> 'Ternate',
-            'tgl_berangkat'	=> '2024-05-31',
-            'jam_brgkt'	=> '07:00:00',
-            'jam_tiba'	=> '08:00:00',
-        ]);
+        // // JDWL-2 (id)
+        // Jadwal::create([
+        //     'speedboat_id' => 'SPD-2',
+        //     'pel_asal' => 'Jailolo',
+        //     'pel_tujuan'	=> 'Ternate',
+        //     'tgl_berangkat'	=> '2024-05-31',
+        //     'jam_brgkt'	=> '07:00:00',
+        //     'jam_tiba'	=> '08:00:00',
+        // ]);
 
-        // JDWL-3 (id)
-        Jadwal::create([
-            'speedboat_id' => 'SPD-1',
-            'pel_asal' => 'Ternate',
-            'pel_tujuan'	=> 'Jailolo',
-            'tgl_berangkat'	=> '2024-05-31',
-            'jam_brgkt'	=> '10:00:00',
-            'jam_tiba'	=> '11:00:00',
-        ]);
+        // // JDWL-3 (id)
+        // Jadwal::create([
+        //     'speedboat_id' => 'SPD-1',
+        //     'pel_asal' => 'Ternate',
+        //     'pel_tujuan'	=> 'Jailolo',
+        //     'tgl_berangkat'	=> '2024-05-31',
+        //     'jam_brgkt'	=> '10:00:00',
+        //     'jam_tiba'	=> '11:00:00',
+        // ]);
 
-        Penumpang::create([
-            'id' => '5304122310020001',
-            'nama' => 'Teguh',
-            'nama_instansi' => '',
-            'jenis_kelamin'	=> 'Laki-Laki',
-            'alamat'	=> 'Gejayan',
-            'no_telp' => '085217331558',
-            'no_telp_darurat' => '085217331124',
-        ]);
-        Penumpang::create([
-            'id' => '5304122310020003',
-            'nama' => 'Waldy',
-            'nama_instansi' => '',
-            'jenis_kelamin'	=> 'Laki-Laki',
-            'alamat'	=> 'Gejayan',
-            'no_telp' => '085217331556',
-            'no_telp_darurat' => '085217331125',
-        ]);
-        Penumpang::create([
-            'id' => '5304122310020005',
-            'nama' => 'Angel',
-            'nama_instansi' => '',
-            'jenis_kelamin'	=> 'Laki-Laki',
-            'alamat'	=> 'Gejayan',
-            'no_telp' => '085217331555',
-            'no_telp_darurat' => '085217331127',
-        ]);
+        // Penumpang::create([
+        //     'id' => '5304122310020001',
+        //     'nama' => 'Teguh',
+        //     'nama_instansi' => '',
+        //     'jenis_kelamin'	=> 'Laki-Laki',
+        //     'alamat'	=> 'Gejayan',
+        //     'no_telp' => '085217331558',
+        //     'no_telp_darurat' => '085217331124',
+        // ]);
+        // Penumpang::create([
+        //     'id' => '5304122310020003',
+        //     'nama' => 'Waldy',
+        //     'nama_instansi' => '',
+        //     'jenis_kelamin'	=> 'Laki-Laki',
+        //     'alamat'	=> 'Gejayan',
+        //     'no_telp' => '085217331556',
+        //     'no_telp_darurat' => '085217331125',
+        // ]);
+        // Penumpang::create([
+        //     'id' => '5304122310020005',
+        //     'nama' => 'Angel',
+        //     'nama_instansi' => '',
+        //     'jenis_kelamin'	=> 'Laki-Laki',
+        //     'alamat'	=> 'Gejayan',
+        //     'no_telp' => '085217331555',
+        //     'no_telp_darurat' => '085217331127',
+        // ]);
 
-        Transaksi::create([
-            'user_id' => 'USER-1',
-            'penumpang_id' => '5304122310020001',
-            'jadwal_id'	=> 'JDWL-1',
-            'biaya_penanganan'	=> '2000',
-            'status' => 'pending',
-            'jenis_layanan'	=> 'Reguler',
-            'jumlah_kursi' => '2',
-            'harga'	=> '150000',
-            'diskon' => '0',
-            'total'	=> '150000',
-        ]);
-        Transaksi::create([
-            'user_id' => 'USER-1',
-            'penumpang_id' => '5304122310020003',
-            'jadwal_id'	=> 'JDWL-1',
-            'biaya_penanganan'	=> '2000',
-            'status' => 'pending',
-            'jenis_layanan'	=> 'Reguler',
-            'jumlah_kursi' => '1',
-            'harga'	=> '75000',
-            'diskon' => '0',
-            'total'	=> '150000',
-        ]);
-        Transaksi::create([
-            'user_id' => 'USER-1',
-            'penumpang_id' => '5304122310020005',
-            'jadwal_id'	=> 'JDWL-1',
-            'biaya_penanganan'	=> '2000',
-            'status' => 'success',
-            'jenis_layanan'	=> 'Reguler',
-            'jumlah_kursi' => '1',
-            'harga'	=> '75000',
-            'diskon' => '0',
-            'total'	=> '150000',
-        ]);
+        // Transaksi::create([
+        //     'user_id' => 'USER-1',
+        //     'penumpang_id' => '5304122310020001',
+        //     'jadwal_id'	=> 'JDWL-1',
+        //     'biaya_penanganan'	=> '2000',
+        //     'status' => 'pending',
+        //     'jenis_layanan'	=> 'Reguler',
+        //     'jumlah_kursi' => '2',
+        //     'harga'	=> '150000',
+        //     'diskon' => '0',
+        //     'total'	=> '150000',
+        // ]);
+        // Transaksi::create([
+        //     'user_id' => 'USER-1',
+        //     'penumpang_id' => '5304122310020003',
+        //     'jadwal_id'	=> 'JDWL-1',
+        //     'biaya_penanganan'	=> '2000',
+        //     'status' => 'pending',
+        //     'jenis_layanan'	=> 'Reguler',
+        //     'jumlah_kursi' => '1',
+        //     'harga'	=> '75000',
+        //     'diskon' => '0',
+        //     'total'	=> '150000',
+        // ]);
+        // Transaksi::create([
+        //     'user_id' => 'USER-1',
+        //     'penumpang_id' => '5304122310020005',
+        //     'jadwal_id'	=> 'JDWL-1',
+        //     'biaya_penanganan'	=> '2000',
+        //     'status' => 'success',
+        //     'jenis_layanan'	=> 'Reguler',
+        //     'jumlah_kursi' => '1',
+        //     'harga'	=> '75000',
+        //     'diskon' => '0',
+        //     'total'	=> '150000',
+        // ]);
 
     }
 }

@@ -66,9 +66,14 @@
                                             <td class="align-middle">{{$mp->nama_bank}}</td>
                                             <td class="align-middle">{{$mp->no_rek}}</td>
                                             <td class="align-middle">{{$mp->nama_rekening}}</td>
-                                            <td class="align-middle">
-                                                <button>Edit</button>
-                                                <button>Delete</button>
+                                            <td>
+                                                <button type=" button" data-toggle="modal"
+                                                    data-target="#editMetodePembayaran{{$mp->id}}"
+                                                    class="p-2 text-black bg-blue-400 rounded-lg">Edit</button>
+                                                <!-- Trigger the modal with a button -->
+                                                <button type="button" data-toggle="modal"
+                                                    data-target="#deleteMetodePembayaran{{ $mp->id }}"
+                                                    class="p-2 text-black bg-red-500 rounded-lg">Hapus</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -124,7 +129,7 @@
                                 </label>
                                 <input
                                     class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
-                                    name="nama_bank" type="text" required placeholder="Kapasitas Kursi" />
+                                    name="nama_bank" type="text" required placeholder="Nama Bank" />
                             </div>
                             <div class="w-1/2">
                                 <label class="block mb-1 font-bold text-start" for="inline-full-name">
@@ -143,7 +148,7 @@
                                 </label>
                                 <input
                                     class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
-                                    name="nomor_rekening" type="number" required placeholder="Kapasitas Kursi" />
+                                    name="nomor_rekening" type="number" required placeholder="Nomor Rekening" />
                             </div>
                             <div class="w-1/2">
                                 <label class="block mb-1 font-bold text-start" for="inline-full-name">
@@ -151,7 +156,7 @@
                                 </label>
                                 <input
                                     class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
-                                    name="nama_rekening" type="text" required placeholder="Harga Speedboat" />
+                                    name="nama_rekening" type="text" required placeholder="Nama Pemilik Rekening" />
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -164,6 +169,99 @@
             </div>
         </div>
     </div>
+
+    @foreach($metodePembayaran as $mp)
+    <div class="modal fade" id="editMetodePembayaran{{$mp->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="editMetodePembayaranLabel{{$mp->id}}" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editMetodePembayaranLabel">Tambah Jadwal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/admin/editMetodePembayaran" method="POST" enctype="multipart/form-data"
+                        class="text-black">
+                        @csrf
+                        <input type="text" name="id_metodePembayaran" value="{{$mp->id}}" hidden>
+
+                        <div class="flex gap-4">
+                            <div class="w-1/2">
+                                <label class="block mb-1 font-bold text-start" for="inline-full-name">
+                                    Nama Bank
+                                </label>
+                                <input
+                                    class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
+                                    name="nama_bank" type="text" required placeholder="Nama Bank" value="{{ $mp->nama_bank }}" />
+                            </div>
+                            <div class="w-1/2">
+                                <label class="block mb-1 font-bold text-start" for="inline-full-name">
+                                    Foto
+                                </label>
+                                <input
+                                    class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
+                                    name="logo_bank" type="file" />
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-1/2">
+                                <label class="block mb-1 font-bold text-start" for="inline-full-name">
+                                    Nomor Rekening
+                                </label>
+                                <input
+                                    class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
+                                    name="nomor_rekening" type="number" required placeholder="Nomor Rekening" value="{{ $mp->no_rek}}" />
+                            </div>
+                            <div class="w-1/2">
+                                <label class="block mb-1 font-bold text-start" for="inline-full-name">
+                                    Nama Rekening
+                                </label>
+                                <input
+                                    class="w-full px-1 py-2 mb-2 text-gray-800 bg-gray-200 border-2 border-gray-200 rounded focus:border-purple-500"
+                                    name="nama_rekening" type="text" required placeholder="Nama Pemilik Rekening" value="{{ $mp->nama_rekening }}" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
+                                data-dismiss="modal">Batal</button>
+                            <button type="submit" class="px-2 py-2 text-white bg-purple-500 rounded-lg">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Delete Bank  -->
+    <div class="modal fade" id="deleteMetodePembayaran{{$mp->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="deleteMetodePembayaranLabel{{$mp->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteMetodePembayaranLabel{{$mp->id }}">Hapus Metode Pembayaran</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin ingin menghapus Bank {{$mp->nama_bank}}?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="px-2 py-2 text-white bg-gray-600 rounded-lg"
+                        data-dismiss="modal">Cancel</button>
+                    <form action="/admin/deleteMetodePembayaran" method="POST">
+                        @csrf
+                        <input type="text" name="id_metodePembayaran" value="{{$mp->id}}" hidden>
+                        <button type="submit" class="px-2 py-2 text-white bg-red-500 rounded-lg">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
 
     @include('layouts.admin.script')
 

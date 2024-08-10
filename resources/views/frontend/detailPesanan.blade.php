@@ -89,6 +89,8 @@
 
         <!-- Data Penumpang -->
         <div class="grid grid-cols-{{count($dataPenumpang)}} gap-3">
+
+
             @foreach($dataPenumpang as $key=>$penumpang)
             <div class="grid w-full gap-2 p-4 bg-white rounded-lg">
             @if($penumpang->nama_instansi != '')

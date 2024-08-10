@@ -171,7 +171,9 @@
                         </label>
                         <input required name="nik_penumpang[]"
                             class="w-full py-2 leading-tight text-gray-700 border-none rounded outline-none appearance-none "
-                            id="nik" type="number" placeholder="Masukan Nomor Induk Kependudukan">
+                            id="nik" type="number" placeholder="Masukan Nomor Induk Kependudukan" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type = "number"
+            maxlength = "16">
                         <div class=" border-[1px] border-gray-600"></div>
                     </div>
                     <div class="mt-3">

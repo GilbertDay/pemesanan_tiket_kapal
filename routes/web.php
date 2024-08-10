@@ -43,6 +43,10 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
 
     // Tambah Data Metode Pembayaran
     Route::post('/tambahMetodePembayaran', [AdminController::class, 'tambahMetodePembayaran']);
+    //Edit Data Metode Pembayaran
+    Route::post('/editMetodePembayaran', [AdminController::class, 'editMetodePembayaran']);
+    //Hapus Data Metode Pembayaran
+    Route::post('/deleteMetodePembayaran', [AdminController::class, 'deleteMetodePembayaran']);
     Route::post('/accTransaksi/{id}', [AdminController::class, 'acceptTransaksi']);
     Route::post('/rejectTransaksi/{id}', [AdminController::class, 'rejectTransaksi']);
 
