@@ -27,9 +27,12 @@ class InfoTransaksiHarianChart
         ->where('status', 'pending')
         ->get();
 
+        $dataTrxGagal = Transaksi::whereDate('created_at', Carbon::today())
+        ->where('status', 'tolak')
+        ->get();
 
         return $this->chart->pieChart()
             ->addData([count($dataTrxSukses), count($dataTrxPending)])
-            ->setLabels(['Transaksi Sukses', 'Transaksi Pending']);
+            ->setLabels(['Transaksi Sukses', 'Transaksi Pending', 'Transaksi Tolak']);
     }
 }

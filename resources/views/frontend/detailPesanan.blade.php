@@ -15,7 +15,7 @@
 
     <div class="flex flex-col gap-3 mt-20">
         <div class="w-full p-4 bg-white rounded-lg">
-            <div class="mb-4 font-bold tracking-wider text-gray-400">Ticket Information</div>
+            <div class="mb-4 font-bold tracking-wider text-gray-400">Informasi Tiket</div>
             <div class="grid grid-cols-2">
                 <div class="grid gap-2">
                     <div>Nama Pemesan</div>
@@ -29,29 +29,30 @@
                     <div class="font-bold">{{$transaksi->user->no_telp}}</div>
                     <div class="font-bold">{{$transaksi->user->email}}</div>
                     <div class="flex gap-3">
-                        <div class="flex items-center">
-                            <img src="{{asset($transaksi->metodePembayaran->img)}}" alt="">
-                        </div>
+                    <div class="flex items-center">
+                    <img src="{{asset($transaksi->metodePembayaran->img)}}" alt="" class="w-18 h-8">
+                    </div>
                         <div class="flex flex-col">
                             <div class="font-semibold">{{$transaksi->metodePembayaran->nama_rekening}} | {{$transaksi->metodePembayaran->no_rek}}</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
-                        <div
-                            class="flex w-fit items-center p-2 px-4 justify-center rounded-md {{$transaksi->status == 'pending' ? 'bg-yellow-500' : 'bg-green-500'}}">
-                            {{$transaksi->status == 'pending' ? 'Menunggu Pembayaran' : 'Pembayaran Berhasil' }}
-                        </div>
-                        @if($transaksi->status == 'pending')
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#uploadBuktiBayar">
+                    <div class="p-2 px-4 justify-center {{$transaksi->status == 'pending' ? '' : 'items-center rounded-md ' . ($transaksi->status == 'success' ? 'bg-green-500' : 'bg-red-500')}}">
+                        {{$transaksi->status == 'pending' ? 'Menunggu Pembayaran' : ($transaksi->status == 'success' ? 'Pembayaran Berhasil' : 'Pembayaran Gagal')}}
+                    </div>
+
+                    @if($transaksi->status == 'pending')
+                        <button type="button" class="items-center p-2 px-4 justify-center rounded-md bg-yellow-500" data-bs-toggle="modal" data-bs-target="#uploadBuktiBayar">
                             Upload Bukti Bayar
                         </button>
-                        @endif
-                    </div>
+                    @endif
+                </div>
+
                 </div>
             </div>
         </div>
         <div class="w-full p-4 bg-white rounded-lg">
-            <div class="mb-4 font-bold tracking-wider text-gray-400">Detail Ticket</div>
+            <div class="mb-4 font-bold tracking-wider text-gray-400">Detail Tiket</div>
             <div class="grid gap-3">
                 <div class="text-xs font-semibold text-gray-400">
                     Kode Order
@@ -139,7 +140,7 @@
     </div>
     </div>
 
-    <!-- Form Tambah Jadwal  -->
+    <!-- Form Upload bukti bayar  -->
     <div class="modal fade" id="uploadBuktiBayar" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="uploadBuktiBayarLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">

@@ -9,6 +9,7 @@ use App\Models\MetodePembayaran;
 use App\Charts\InfoTransaksiHarianChart;
 use App\Charts\InfoRuteSpeedboatChart;
 use Carbon\Carbon;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -170,8 +171,9 @@ class AdminController extends Controller
         $transaksi_all = Transaksi::all();
         $transaksi_sukses = Transaksi::where('status','success')->get();
         $transaksi_pending = Transaksi::where('status','pending')->get();
+        $transaksi_reject = Transaksi::where('status','reject')->get();
 
-        return view('backend.transaksi', compact('transaksi_sukses','transaksi_pending','transaksi_all'));
+        return view('backend.transaksi', compact('transaksi_sukses','transaksi_pending','transaksi_all','transaksi_reject'));
     }
 
     public function acceptTransaksi(Request $req){
@@ -180,7 +182,13 @@ class AdminController extends Controller
     }
 
     public function rejectTransaksi(Request $req){
-        $transaksi = Transaksi::find($req->id)->update(['status' => 'reject']);
+        $transaksi = Transaksi::with('jadwal')->find($req->id);
+        $transaksi->update(['status' => 'reject']);
+        $updateJadwal = $transaksi->jadwal->update([
+            'tiket_tersedia' => DB::raw('tiket_tersedia + ' . $transaksi->jumlah_kursi)
+        ]);
+        // dd($updateJadwal);
+
         return redirect('/admin/transaksi');
     }
 

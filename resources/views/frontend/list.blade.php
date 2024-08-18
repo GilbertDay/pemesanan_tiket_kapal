@@ -30,7 +30,7 @@
                     <div class="w-1/5 -ml-12 font-semibold">Jam Berangkat</div>
                     <div class="w-1/5 -ml-10 font-semibold">Jam Tiba</div>
                     <div class="w-1/5 -ml-10 font-semibold">Jumlah Kursi</div>
-                    <div class="w-1/5 -ml-8 font-semibold">Harga (Rp.)</div>
+                    <div class="w-1/5 -ml-8 font-semibold">Harga/Kursi</div>
                 </div>
 
                 <!-- Jika Kosong -->
@@ -73,7 +73,8 @@
                             </div>
                             <div id="jb-{{$jadwal->id}}" class="w-1/5 ">{{$jadwal->jam_brgkt}}</div>
                             <div id="jt-{{$jadwal->id}}" class="w-1/5">{{$jadwal->jam_tiba}}</div>
-                            <div class="w-1/5">30</div>
+                            <div id="jk-{{$jadwal->id}}" class="w-1/5">{{$jadwal->tiket_tersedia}}</div>
+                            <!-- <div class="w-1/5">50</div> -->
                             <div id="tarif-{{$jadwal->id}}" class="w-1/5">Rp.
                                 {{$jadwal->speedboat->harga}}.000</div>
                             <div id="btn-pilih-{{$jadwal->id}}" onclick="handlePilihKapal(`{{$jadwal->id}}`)"

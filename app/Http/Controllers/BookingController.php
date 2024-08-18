@@ -46,7 +46,7 @@ class BookingController extends Controller
                 Penumpang::create([
                     'id' => $req->nik_penumpang[$i],
                     'nama' => $req->nama_penumpang[$i],
-                    'jenis_kelamin' => 'Laki-Laki',
+                    'jenis_kelamin' => $req->jenis_kelamin,
                     'nama_instansi' => $req->layanan == 'carter' ? $req->nama_instansi : '',
                     'alamat' => $req->alamat[$i],
                     'no_telp' => $req->no_telp[$i],
@@ -79,4 +79,6 @@ class BookingController extends Controller
         //Fungsi untuk Menambah Penumpang di Tabel Penumpang
         return redirect('/riwayatPesanan');
     }
+
+    
 }

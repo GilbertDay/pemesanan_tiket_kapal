@@ -49,8 +49,6 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     Route::post('/deleteMetodePembayaran', [AdminController::class, 'deleteMetodePembayaran']);
     Route::post('/accTransaksi/{id}', [AdminController::class, 'acceptTransaksi']);
     Route::post('/rejectTransaksi/{id}', [AdminController::class, 'rejectTransaksi']);
-
-
 });
 
 Route::middleware(['login'])->group(function() {

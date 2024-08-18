@@ -48,6 +48,7 @@
                                             <th>Kode Transaksi</th>
                                             <th>Tanggal</th>
                                             <th>Nama Pemesan</th>
+                                            <th>Id Pemesan</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
                                             <th>No Telepon</th>
@@ -62,6 +63,7 @@
                                             <td>{{$trx->id}}</td>
                                             <td>{{ \Carbon\Carbon::parse($trx->created_at)->format('d-m-Y') }}</td>
                                             <td>{{$trx->user->name}}</td>
+                                            <td>{{$trx->id_penumpang}}</td>
                                             <td>{{$trx->jenis_layanan}}</td>
                                             <td>{{$trx->jumlah_kursi}}</td>
                                             <td>{{$trx->user->no_telp}}</td>
@@ -101,6 +103,7 @@
                                             <th>Kode Transaksi</th>
                                             <th>Tanggal</th>
                                             <th>Nama Pemesan</th>
+                                            <th>Id Penumpang</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
                                             <th>No Telepon</th>
@@ -116,10 +119,49 @@
                                             <td>{{$trx->id}}</td>
                                             <td>{{ \Carbon\Carbon::parse($trx->created_at)->format('d-m-Y') }}</td>
                                             <td>{{$trx->user->name}}</td>
+                                            <td>{{$trx->penumpang_id}}</td>
                                             <td>{{$trx->jenis_layanan}}</td>
                                             <td>{{$trx->jumlah_kursi}}</td>
                                             <td>{{$trx->user->no_telp}}</td>
                                             <td>{{ number_format($trx->total, 0, ',', '.') }}.000</td>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+            <div class="mb-4 shadow card ">
+                        <div class="text-black card-body-table">
+                            <div class="px-3 py-1 mb-3 font-semibold text-center text-white bg-red-500">Transaksi
+                                Gagal</div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="tabelTransaksireject" width="100%"
+                                    cellspacing="0">
+                                    <thead>
+                                        <tr class="text-black">
+                                            <th>Kode Transaksi</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Pemesan</th>
+                                            <th>Penumpang Id</th>
+                                            <th>Jenis Layanan</th>
+                                            <th>Jumlah Kursi</th>
+                                            <th>No Telepon</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                
+                                        @foreach($transaksi_reject as $trx)
+                                        <tr class="text-black">
+                                            <td>{{$trx->id}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($trx->created_at)->format('d-m-Y') }}</td>
+                                            <td>{{$trx->user->name}}</td>
+                                            <td>{{$trx->penumpang_id}}</td>
+                                            <td>{{$trx->jenis_layanan}}</td>
+                                            <td>{{$trx->jumlah_kursi}}</td>
+                                            <td>{{$trx->user->no_telp}}</td>
 
                                         </tr>
                                         @endforeach

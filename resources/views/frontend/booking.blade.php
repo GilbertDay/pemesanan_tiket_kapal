@@ -186,6 +186,16 @@
                         <div class=" border-[1px] border-gray-600"></div>
                     </div>
                     <div class="mt-3">
+                        Jenis Kelamin
+                        <select id="jenis_kelamin" name="jenis_kelamin"
+                            class="w-full px-3 py-2 mt-3 border-1 border-black rounded-xl" required>
+                            <option class="hidden" value="">Pilih Jenis Kelamin</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                            
+                        </select>
+                    </div>
+                    <div class="mt-3">
                         <label class="block mb-1 text-sm font-semibold text-gray-600">
                             Alamat
                         </label>

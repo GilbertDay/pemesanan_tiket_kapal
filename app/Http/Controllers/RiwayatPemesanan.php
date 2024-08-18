@@ -18,8 +18,9 @@ class RiwayatPemesanan extends Controller
         $fileName = time().$req->file('bukti_bayar')->getClientOriginalName();
         $path = $req->file('bukti_bayar')->storeAs('bukti_bayar', $fileName, 'public');
 
-        Transaksi::find($req->transaksi_id)->update(['bukti_bayar' => '/storage/'.$path]); // harga naik 15%
+        Transaksi::find($req->transaksi_id)->update(['bukti_bayar' => '/storage/'.$path]);
 
         return redirect('/');
     }
+    
 }

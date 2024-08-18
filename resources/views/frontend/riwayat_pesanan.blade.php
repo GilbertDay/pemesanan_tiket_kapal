@@ -18,7 +18,7 @@
         <div class="w-full bg-white text-[#151F57] font-semibold p-3  rounded-xl">
             <div class="flex justify-between mb-16">
                 <div class="grow">
-                    <div class="mb-4">Tanggal Order : {{date('d-m-Y H:m', strtotime($order->created_at))}} WIB
+                    <div class="mb-4">Tanggal Order : {{date('d-m-Y H:m', strtotime($order->created_at))}} WIT
                     </div>
                     <div class="flex gap-3 text-2xl">
                         <div>{{$order->jadwal->pel_asal}}</div>
@@ -46,10 +46,10 @@
             </div>
             <div class="flex gap-3 ">
                 <div
-                    class="flex items-center p-2 justify-center rounded-md grow {{$order->status == 'pending' ? 'bg-yellow-500' : 'bg-green-500'}}">
-                    {{$order->status == 'pending' ? 'Menunggu Pembayaran' : 'Pembayaran Berhasil' }}
+                    class="flex items-center p-2 justify-center rounded-md grow {{ $order->status == 'pending' ? 'bg-yellow-500' : ($order->status == 'reject' ? 'bg-red-500' : 'bg-green-500') }} {{$order->status == 'pending' ? 'bg-yellow-500' : 'bg-green-500'}}">
+                    {{ $order->status == 'pending' ? 'Menunggu Pembayaran' : ($order->status == 'reject' ? 'Pembayaran Ditolak' : 'Pembayaran Berhasil') }}
                 </div>
-                @if($order->status != 'pending')
+                @if($order->status != 'pending' && $order->status != 'reject')
                 <!-- <div class="p-2 px-6 text-white bg-gray-500 rounded-md">Cetak Tiket</div> -->
                 <form action="/cetakTiket/{{$order->id}}" method="POST">
                     @csrf

@@ -20,7 +20,7 @@
         <div class="text-2xl font-bold text-center text-white">Masuk</div>
 
         @if(session('error'))
-        <div class="px-3 py-2 mx-56 my-4 text-center text-white bg-green-600">
+        <div class="px-2 py-2 mx-56 my-4 text-center text-white bg-red-600">
             <span class="cursor-pointer hover:bg-black"
                 onclick="this.parentElement.style.display='none';">&times;</span>
             {{ session('error') }}
