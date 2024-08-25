@@ -62,6 +62,10 @@ class ListJadwalController extends Controller
                     ->update(['harga' => DB::raw('harga * 1.15')]); // harga naik 15%
             }
         }
+        $listjadwal = Jadwal::with('speedboat')
+            ->where('tgl_berangkat', $tanggal)
+            ->orderBy('jam_brgkt', 'asc') // Mengurutkan berdasarkan jam keberangkatan
+            ->get();
 
         return view('frontend.list', compact('penumpang','tanggal','layanan','listjadwal', 'soldTiket'));
     }

@@ -69,6 +69,8 @@
             jbPrev.classList.remove("text-orange-600");
             jtPrev.classList.remove("text-orange-600");
             hargaPrev.classList.remove("text-orange-600");
+            btnPrev.innerHTML="Pilih";
+
             btnPrev.classList.remove("bg-orange-600");
             btnPrev.classList.add("bg-[#151F57]");
             checkTruePrev.classList.add("hidden");
@@ -89,6 +91,7 @@
             jt.classList.add("text-orange-600");
             harga.classList.add("text-orange-600");
             btn.classList.remove("bg-[#151F57]");
+            btn.innerHTML="Batal";
             btn.classList.add("bg-orange-600");
             checkTrue.classList.remove("hidden");
             checkFalse.classList.add("hidden");

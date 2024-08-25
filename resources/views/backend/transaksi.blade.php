@@ -48,7 +48,7 @@
                                             <th>Kode Transaksi</th>
                                             <th>Tanggal</th>
                                             <th>Nama Pemesan</th>
-                                            <th>Id Pemesan</th>
+                                            <th>Id Penumpang</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
                                             <th>No Telepon</th>
@@ -145,7 +145,7 @@
                                             <th>Kode Transaksi</th>
                                             <th>Tanggal</th>
                                             <th>Nama Pemesan</th>
-                                            <th>Penumpang Id</th>
+                                            <th>Id Penumpang</th>
                                             <th>Jenis Layanan</th>
                                             <th>Jumlah Kursi</th>
                                             <th>No Telepon</th>

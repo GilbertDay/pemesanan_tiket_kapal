@@ -70,6 +70,7 @@ class InfoRuteSpeedboatChart
             ->addData('Pelabuhan Laut Jailolo - Pelabuhan Bastion Ternate', $asalJailolo)
             ->addData('Pelabuhan Bastion Ternate - Pelabuhan Laut Jailolo',$asalTernate )
             ->setXAxis($speedboatNames);
+            
 
     }
 }

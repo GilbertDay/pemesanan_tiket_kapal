@@ -28,11 +28,11 @@ class InfoTransaksiHarianChart
         ->get();
 
         $dataTrxGagal = Transaksi::whereDate('created_at', Carbon::today())
-        ->where('status', 'tolak')
+        ->where('status', 'reject')
         ->get();
 
         return $this->chart->pieChart()
-            ->addData([count($dataTrxSukses), count($dataTrxPending)])
+            ->addData([count($dataTrxSukses), count($dataTrxPending), count($dataTrxGagal)])
             ->setLabels(['Transaksi Sukses', 'Transaksi Pending', 'Transaksi Tolak']);
     }
 }

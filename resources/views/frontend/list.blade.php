@@ -5,6 +5,12 @@
 @section('content')
 @inject('carbon', 'Carbon\Carbon')
 
+@php
+    // Mengurutkan listjadwal berdasarkan jam_brgkt
+    $listjadwal = $listjadwal->sortBy('jam_brgkt');
+@endphp
+
+
 
 <body class="bg-[#151F57] py-5 px-10">
     <nav class="flex justify-between text-2xl">
