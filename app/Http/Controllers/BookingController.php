@@ -60,7 +60,7 @@ class BookingController extends Controller
         ]);
 
 
-        Transaksi::create([
+        $transaksi = Transaksi::create([
             'user_id' => $req->id_user,
             'penumpang_id' => implode(',', $id_penumpang),
             'nama' => $req->nama,
@@ -75,11 +75,22 @@ class BookingController extends Controller
             'total' => $req->total,
         ]);
 
+         // Ambil ID transaksi yang baru dibuat
+        $transaksiId = $transaksi->id;
+        $url = ('https://5b08-180-245-198-223.ngrok-free.app/detailPesanan/' . $transaksiId);
+        // Generate QR code dan simpan file path-nya
+        $filePath = $this->generateQrCode($url);
 
+        // dd($filePath);
+
+        // Update transaksi dengan file path QR code
+        $transaksi->update([
+            'qr_code' => $filePath
+        ]);
 
         //Fungsi untuk Menambah Penumpang di Tabel Penumpang
         return redirect('/riwayatPesanan');
     }
 
-    
+
 }

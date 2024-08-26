@@ -51,11 +51,11 @@
     </table>
     <table style="width: 100%; font-weight: 700;">
         <td style="width: 20%;">
-            <div style="text-align: center;">
+            <div style="text-align: center; margin-bottom: 5px;">
                 {{$data->jadwal->speedboat->nama_speedboat}}
             </div>
             <div style="text-align: center;">
-                <img src="{{ public_path('/assets/qr-code.png')}}" alt="" width="100px">
+                <img src="{{ public_path('/storage/'.$data->qr_code)}}" alt="" width="100px">
             </div>
         </td>
         <td>

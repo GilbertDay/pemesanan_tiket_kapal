@@ -51,9 +51,9 @@ Route::middleware(['login', 'role:admin'])->prefix('admin/')->group(function() {
     Route::post('/rejectTransaksi/{id}', [AdminController::class, 'rejectTransaksi']);
 });
 
+Route::get('/detailPesanan/{id}', [DetailPesananController::class, 'index']);
 Route::middleware(['login'])->group(function() {
     Route::post('/pesan/{id}', [BookingController::class, 'index']);
-    Route::post('/detailPesanan/{id}', [DetailPesananController::class, 'index']);
     Route::post('/saveOrders', [BookingController::class, 'createOrders']);
     Route::get('/riwayatPesanan', [RiwayatPemesanan::class, 'index']);
     Route::post('/uploadBuktiBayar', [RiwayatPemesanan::class, 'uploadBuktiBayar']);

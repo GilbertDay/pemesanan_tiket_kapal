@@ -22,7 +22,8 @@ class Transaksi extends Model
         'harga',
         'diskon',
         'total',
-        'bukti_bayar'
+        'bukti_bayar',
+        'qr_code',
     ];
 
 

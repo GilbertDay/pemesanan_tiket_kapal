@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class DetailPesananController extends Controller
 {
-    public function index(Request $req){
+    public function index($id){
 
-        $transaksi = Transaksi::find($req->id_trx);
+        $transaksi = Transaksi::find($id);
         $idPenumpang = explode(',',$transaksi->penumpang_id); //pisahkan string menjadi array
         $dataPenumpang = [];
 

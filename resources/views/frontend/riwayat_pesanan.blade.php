@@ -30,15 +30,15 @@
                         <div>Waktu Keberangkatan : {{$order->jadwal->jam_brgkt}} - {{$order->jadwal->jam_tiba}}
                         </div>
                         @if($order->jenis_layanan == 'Reguler')
-                            <div class="mt-2">Tiket Reguler</div>
+                        <div class="mt-2">Tiket Reguler</div>
                         @elseif ($order->jenis_layanan == 'Carter')
-                            <div class="mt-2">Tiket Carter</div>
+                        <div class="mt-2">Tiket Carter</div>
                         @endif
                     </div>
                 </div>
-                <form action='/detailPesanan/{{$order->id}}' method="POST">
+                <form action='/detailPesanan/{{$order->id}}' method="GET">
                     @csrf
-                    <input type="text" value="{{$order->id}}" name="id_trx" hidden>
+                    <!-- <input type="text" value="{{$order->id}}" name="id_trx" hidden> -->
                     <button class="h-full p-4 rounded-lg hover:text-white hover:bg-gray-600">
                         Lihat Detail Pesanan
                     </button>

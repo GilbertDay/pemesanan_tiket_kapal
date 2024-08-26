@@ -10,7 +10,7 @@ use Auth;
 class RiwayatPemesanan extends Controller
 {
     public function index() {
-        $orders = Transaksi::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
+        $orders = Transaksi::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
         return view('frontend.riwayat_pesanan', compact('orders'));
     }
 
@@ -22,5 +22,5 @@ class RiwayatPemesanan extends Controller
 
         return redirect('/');
     }
-    
+
 }
